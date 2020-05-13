@@ -1,22 +1,43 @@
 package com.wvp;
 
-import com.wvp.enums.Nationality;
 import com.wvp.enums.ParkRegions;
 import com.wvp.people.Tourist;
+import com.wvp.people.services.tourists.TouristService;
 import com.wvp.species.mammals.Feline;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Scanner;
 
 public class Western_Valley_Park {
 
     public static void main(String[] args) {
-        Tourist brigitte = new Tourist(1, "Brigitte", 64,
-                Nationality.FRENCH.getNationality(), ParkRegions.KUDUSCAMP.getRegionName(),
-                ParkRegions.ANTELOPESVALLEY.getRegionName(), ParkRegions.ROOIBOSBERG.getRegionName());
+        // Appel de TouristService
+        TouristService touristService = new TouristService();
+        Scanner scanner = new Scanner(System.in);
+        String search = scanner.nextLine();
+        touristService.touristActivities(search);
 
+
+
+
+        /*ArrayList<Tourist> resultList = touristService.searchByName(search);
+        for (Tourist foundTourist: resultList) {
+            System.out.println(foundTourist.getName() + " visited "
+                    + foundTourist.getVisitedRegions() + ". "
+                    + foundTourist.takePicture("cheetah", ParkRegions.KUDUSCAMP.getRegionName()));
+        }*/
+
+        /* Scanner scannerNationality = new Scanner(System.in);
+        String searchByNationality = scannerNationality.nextLine();
+        ArrayList<Tourist> resultListByNationality = touristService.searchByNationality(searchByNationality);
+        for (Tourist result: resultListByNationality) {
+            System.out.println(result.getName());
+        }*/
+
+
+
+/*
         Feline cheetah = new Feline("cheetah", 10);
         // Region enum
         ParkRegions kuduscamp = ParkRegions.KUDUSCAMP;
@@ -32,9 +53,10 @@ public class Western_Valley_Park {
 
         // Nationality
         Nationality french = Nationality.FRENCH;
-        System.out.println(brigitte.getName() + " is " + brigitte.getNationality());
+        System.out.println(brigitte.getName() + " is " + brigitte.getNationality());*/
 
         // HashMap avec input clavier
+/*
         HashMap<Integer, String> touristes = new HashMap();
         touristes.put(1, "Brigitte");
         touristes.put(2, "Ziad");
@@ -45,8 +67,9 @@ public class Western_Valley_Park {
         int touristKey = scanner1.nextInt();
         System.out.println(touristes.getOrDefault(touristKey, "Client inexistant dans la base de données."));
 
+*/
         // Interaction clavier
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
         System.out.println("2. Quel(le) touriste voulez-vous afficher ?");
         int touristId = scanner.nextInt();
         if (touristId == 1) {
@@ -54,7 +77,8 @@ public class Western_Valley_Park {
                     brigitte.getName());
         } else {
             System.out.println("Contact inconnu");
-        }
+        }*/
 
     }
+
 }
