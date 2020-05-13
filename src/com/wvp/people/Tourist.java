@@ -23,12 +23,16 @@ public class Tourist extends Human implements carryWeapons {
         return nationality;
     }
 
+    /*public void getTouristsListByNation() {
+        return ;
+    }*/
+
     // Method(s)
     // untel a pris tel animal/telle région en photo (system.out) avec scanner, sélectionner un animal qui sera ensuite
     // intégré dans le résultat (system.out)
     public String takePicture(String animalName, String visitedRegion) {
         return getName() + " took a picture of a " + animalName + " in " + visitedRegion;
-    };
+    }
 
     // Aucune région encore visitée
     public boolean hasVisitedRegions() {

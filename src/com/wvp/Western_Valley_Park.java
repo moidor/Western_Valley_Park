@@ -14,10 +14,16 @@ public class Western_Valley_Park {
     public static void main(String[] args) {
         // Appel de TouristService
         TouristService touristService = new TouristService();
+        // Chercher un touriste afin d'afficher les régions visitées
+        System.out.println("Entrez le nom d'un touriste : ");
         Scanner scanner = new Scanner(System.in);
         String search = scanner.nextLine();
         touristService.touristActivities(search);
-
+        // Chercher un touriste en fonction de sa nationalité
+        System.out.println("Entrez une nationalité : ");
+        Scanner scanner2 = new Scanner(System.in);
+        String search2 = scanner2.nextLine();
+        touristService.searchByNationality(search2);
 
 
 
@@ -69,9 +75,9 @@ public class Western_Valley_Park {
 
 */
         // Interaction clavier
-        /*Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner2 = new Scanner(System.in);
         System.out.println("2. Quel(le) touriste voulez-vous afficher ?");
-        int touristId = scanner.nextInt();
+        int touristId = scanner2.nextInt();
         if (touristId == 1) {
             System.out.println("Vous avez tapé : " + touristId + " pour le prénom de " +
                     brigitte.getName());
