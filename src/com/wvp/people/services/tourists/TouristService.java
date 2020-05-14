@@ -36,8 +36,19 @@ public class TouristService {
         this.touristList.add(jacques);
     }
 
-    public ArrayList<Tourist> getTouristList() {
-        return this.touristList;
+    public Tourist getTouristInstance(int touristId) {
+        return this.touristList.get(touristId);
+    }
+
+    // Comment intégrer plusieurs ID à la fois
+    public ArrayList<Tourist> getLesTouristesById(int touristId) {
+        ArrayList<Tourist> listeDeTouristes = new ArrayList<>();
+        for (Tourist t: this.touristList) {
+            if (t.getId() == touristId) {
+                listeDeTouristes.add(t);
+            }
+        }
+        return listeDeTouristes;
     }
 
     // ON CHERCHE UNIQUEMENT UN NOM
@@ -53,10 +64,10 @@ public class TouristService {
 
     public void touristActivities(String touristName) {
         Tourist foundTourist = this.searchByName(touristName).get(0);
-        if (!foundTourist.hasVisitedRegions()) {
-            System.out.println(foundTourist.getName() + " n'a pas encore visité de régions.");
+        if (foundTourist.hasVisitedRegions()) {
+            System.out.println(foundTourist.getName() + " did not still visit any region.");
         } else {
-            System.out.println(foundTourist.getName() + " (n° client : " + foundTourist.getId()
+            System.out.println(foundTourist.getName() + " (Customer n° : " + foundTourist.getId()
                     + ")" + " visited " +
                     foundTourist.getVisitedRegions() + ". "
                     + foundTourist.takePicture("cheetah",

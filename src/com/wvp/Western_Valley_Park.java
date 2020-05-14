@@ -1,13 +1,17 @@
 package com.wvp;
 
 import com.wvp.enums.ParkRegions;
+import com.wvp.people.TourGuide;
 import com.wvp.people.Tourist;
+import com.wvp.people.services.tourguides.TourGuideService;
 import com.wvp.people.services.tourists.TouristService;
 import com.wvp.species.mammals.Feline;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import static java.util.Arrays.asList;
 
 public class Western_Valley_Park {
 
@@ -24,6 +28,13 @@ public class Western_Valley_Park {
         Scanner scanner2 = new Scanner(System.in);
         String search2 = scanner2.nextLine();
         touristService.searchByNationality(search2);
+
+        // Tour guides
+        TourGuideService tourGuideService = new TourGuideService();
+        System.out.println("Entrez le nom d'un guide touristique : ");
+        Scanner scanner3 = new Scanner(System.in);
+        String search3 = scanner3.nextLine();
+        tourGuideService.tourGuideActivies(search3);
 
 
 
