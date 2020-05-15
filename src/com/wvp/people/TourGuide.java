@@ -3,20 +3,18 @@ package com.wvp.people;
 import com.wvp.interfaces.humans_interfaces.carryWeapons;
 import com.wvp.models.Human;
 
-import java.util.ArrayList;
-
 public class TourGuide extends Human implements carryWeapons {
     private final int id;
     protected String[] groupOfTourists;
-    protected Tourist tourist;
 
-    public TourGuide(int id, String name, int age, String nationality, String[] groupOfTourists,
-                     Tourist tourist,
+    public TourGuide(int id, String name, int age, String gender,
+                     String nationality,
+                     String country,
+                     String[] groupOfTourists,
                      String... visitedRegions) {
-        super(name, age, nationality, visitedRegions);
+        super(name, age, gender, nationality, country, visitedRegions);
         this.id = id;
         this.groupOfTourists = groupOfTourists;
-        this.tourist = tourist;
     }
 
     public int getId() {
@@ -43,20 +41,6 @@ public class TourGuide extends Human implements carryWeapons {
         }
         return String.join("", groupOfTourists);
     }
-
-    public void setGroupOfTourists(String[] groupOfTourists) {
-        this.groupOfTourists = groupOfTourists;
-    }
-
-    public Tourist getTourist() {
-        return tourist;
-    }
-
-    public void setTourist(Tourist tourist) {
-        this.tourist = tourist;
-    }
-
-
 
     @Override
     public boolean canCarryWeapon() {
@@ -88,6 +72,15 @@ public class TourGuide extends Human implements carryWeapons {
         super.setAge(age);
     }
 
+    @Override
+    public String getGender() {
+        return super.getGender();
+    }
+
+    @Override
+    public String getCountry() {
+        return super.getCountry();
+    }
 
     @Override
     public boolean hasVisitedRegions() {

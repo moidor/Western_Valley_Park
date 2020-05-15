@@ -6,8 +6,8 @@ import com.wvp.models.Human;
 public class Tourist extends Human implements carryWeapons {
     private final int id;
 
-    public Tourist(int id, String name, int age, String nationality, String ... visitedRegions) {
-        super(name, age, nationality, visitedRegions);
+    public Tourist(int id, String name, int age, String gender, String nationality, String country, String ... visitedRegions) {
+        super(name, age, gender, nationality, country, visitedRegions);
         this.id = id;
     }
 
@@ -63,6 +63,16 @@ public class Tourist extends Human implements carryWeapons {
     @Override
     public void setAge(int age) {
         super.setAge(age);
+    }
+
+    @Override
+    public String getGender() {
+        return super.getGender();
+    }
+
+    @Override
+    public String getCountry() {
+        return super.getCountry();
     }
 
     /*@Override

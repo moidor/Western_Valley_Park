@@ -1,25 +1,31 @@
 package com.wvp.enums;
 
 public enum Nationality {
-    SOUTH_AFRICAN("South African"),
-    NAMIBIAN("Namibian"),
-    MOZAMBICAN("Mozambican"),
-    FRENCH("French"),
-    DUTCH("Dutch"),
-    AMERICAN("American"),
-    CANADIAN("Canadian"),
-    JAPANESE("Japanese");
+    SOUTH_AFRICAN("South Africa", "South African"),
+    NAMIBIAN("Namibia", "Namibian"),
+    MOZAMBICAN("Mozambique", "Mozambican"),
+    FRENCH("France", "French"),
+    DUTCH("the Nertherlands", "Dutch"),
+    AMERICAN("the United States", "American"),
+    CANADIAN("Canada", "Canadian"),
+    JAPANESE("Japan", "Japanese");
 
     // Attribute
+    private final String country;
     private final String nationality;
 
-    // Getter
+    // Constructor
+    Nationality(String country, String nationality) {
+        this.country = country;
+        this.nationality = nationality;
+    }
+
+    // Getters
     public String getNationality() {
         return nationality;
     }
 
-    // Constructor
-    Nationality(String nationality) {
-        this.nationality = nationality;
+    public String getCountry() {
+        return country;
     }
 }

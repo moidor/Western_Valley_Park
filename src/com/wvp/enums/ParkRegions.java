@@ -8,7 +8,7 @@ public enum ParkRegions {
     CAPESUGARBIRDPROTEA("The Cape Sugarbird's Protea"),
     BUCHULAND("Buchu Land"),
     STELLENBOSCH("Stellenbosch"),
-    KIRSTENBOSCH("Kirstenbosh"),
+    KIRSTENBOSCH("Kirstenbosch"),
     GANSBAII("Gansbaii"),
     NAMIBIANREDDESERT("Namibian Red Desert"),
     TABLEMOUNTAIN("Table Mountain");

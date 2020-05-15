@@ -1,12 +1,12 @@
 package com.wvp.people.services.tourguides;
 
+import com.wvp.enums.Gender;
 import com.wvp.enums.Nationality;
 import com.wvp.enums.ParkRegions;
 import com.wvp.people.TourGuide;
 import com.wvp.people.services.tourists.TouristService;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class TourGuideService {
     private final ArrayList<TourGuide> tourGuidesList;
@@ -23,16 +23,18 @@ public class TourGuideService {
         /*Tourist touristInstance = touristService;*/
 
         // Liste des guides touristiques
-        TourGuide frank = new TourGuide(1, "Frank", 36,
+        TourGuide frank = new TourGuide(1, "Frank", 36, Gender.MALE.getGender(),
                 Nationality.SOUTH_AFRICAN.getNationality(),
-                new String[]{"Dina", "Brigitte", "Ziad"},
-                touristService.getTouristInstance(2),
+                Nationality.SOUTH_AFRICAN.getCountry(),
+                new String[]{touristService.getTouristInstance("Dina"),
+                touristService.getTouristInstance("Brigitte"),
+                touristService.getTouristInstance("Ziad")},
                 ParkRegions.KIRSTENBOSCH.getRegionName(),
                 ParkRegions.STELLENBOSCH.getRegionName());
-        TourGuide michelle = new TourGuide(2, "Michelle", 27,
+        TourGuide michelle = new TourGuide(2, "Michelle", 27,Gender.FEMALE.getGender(),
                 Nationality.NAMIBIAN.getNationality(),
-                new String[]{"Jacques"},
-                touristService.getTouristInstance(3),
+                Nationality.NAMIBIAN.getCountry(),
+                new String[]{touristService.getTouristInstance("Jacques")},
                 ParkRegions.BUCHULAND.getRegionName(),
                 ParkRegions.NAMIBIANREDDESERT.getRegionName(),
                 ParkRegions.TABLEMOUNTAIN.getRegionName());
@@ -57,8 +59,8 @@ public class TourGuideService {
 
     public void tourGuideActivies(String tourGuideName) {
         TourGuide foundTourGuide = this.searchByName(tourGuideName).get(0);
-        System.out.println(foundTourGuide.getName() + " makes " +
-                foundTourGuide.getTourist().getName() + " - " + foundTourGuide.getGroupOfTourists()
-        + " visit " + foundTourGuide.getTourist().getVisitedRegions() + ".");
+        System.out.println(foundTourGuide.getName() + " from " + foundTourGuide.getCountry()
+                + " makes " + foundTourGuide.getGroupOfTourists()
+        + " visit " + foundTourGuide.getVisitedRegions() + ".");
     }
 }

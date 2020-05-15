@@ -1,5 +1,6 @@
 package com.wvp.people.services.tourists;
 
+import com.wvp.enums.Gender;
 import com.wvp.enums.Nationality;
 import com.wvp.enums.ParkRegions;
 import com.wvp.people.Tourist;
@@ -17,16 +18,20 @@ public class TouristService {
 
     private void init() {
         // French tourists
-        Tourist brigitte = new Tourist(1, "Brigitte", 64,
-                Nationality.FRENCH.getNationality(), ParkRegions.KUDUSCAMP.getRegionName(),
+        Tourist brigitte = new Tourist(1, "Brigitte", 64, Gender.FEMALE.getGender(),
+                Nationality.FRENCH.getNationality(), Nationality.FRENCH.getCountry(),
+                ParkRegions.KUDUSCAMP.getRegionName(),
                 ParkRegions.ANTELOPESVALLEY.getRegionName(), ParkRegions.ROOIBOSBERG.getRegionName(),
                 ParkRegions.BUCHULAND.getRegionName());
-        Tourist ziad = new Tourist(2, "Ziad", 1,
-                Nationality.FRENCH.getNationality(), ParkRegions.MUIZENBERG.getRegionName(),
+        Tourist ziad = new Tourist(2, "Ziad", 1, Gender.MALE.getGender(),
+                Nationality.FRENCH.getNationality(), Nationality.FRENCH.getCountry(),
+                ParkRegions.MUIZENBERG.getRegionName(),
                 ParkRegions.CAPESUGARBIRDPROTEA.getRegionName(), ParkRegions.GANSBAII.getRegionName());
-        Tourist dina = new Tourist(3, "Dina", 4, Nationality.FRENCH.getNationality());
+        Tourist dina = new Tourist(3, "Dina", 4, Gender.FEMALE.getGender(),
+                Nationality.FRENCH.getNationality(), Nationality.FRENCH.getCountry());
         // Canadian tourists
-        Tourist jacques = new Tourist(4, "Jacques", 73, Nationality.CANADIAN.getNationality(),
+        Tourist jacques = new Tourist(4, "Jacques", 73, Gender.MALE.getGender(),
+                Nationality.CANADIAN.getNationality(), Nationality.CANADIAN.getCountry(),
                 ParkRegions.TABLEMOUNTAIN.getRegionName(), ParkRegions.NAMIBIANREDDESERT.getRegionName());
 
 
@@ -36,8 +41,9 @@ public class TouristService {
         this.touristList.add(jacques);
     }
 
-    public Tourist getTouristInstance(int touristId) {
-        return this.touristList.get(touristId);
+    public String getTouristInstance(String name) {
+        this.touristList.get(0).getName();
+        return name;
     }
 
     // Comment intégrer plusieurs ID à la fois
@@ -65,7 +71,7 @@ public class TouristService {
     public void touristActivities(String touristName) {
         Tourist foundTourist = this.searchByName(touristName).get(0);
         if (foundTourist.hasVisitedRegions()) {
-            System.out.println(foundTourist.getName() + " did not still visit any region.");
+            System.out.println(foundTourist.getName() + " still did not visit any region.");
         } else {
             System.out.println(foundTourist.getName() + " (Customer n° : " + foundTourist.getId()
                     + ")" + " visited " +
@@ -88,15 +94,7 @@ public class TouristService {
         }
         /*String conversionInString = foundTouristsByNationality.toString();
         String conversionInString1 = String.join(", ", conversionInString);*/
-        System.out.println("Search result : " + foundTouristsByNationality);
+        System.out.println("People from " + foundTouristsByNationality);
         return result;
     }
-
-    /*public void touristNationality(String nationality) {
-        ArrayList<Tourist> foundTouristsByNation = new ArrayList<>();
-        Tourist touristNationInstance = this.searchByNationality(nationality).get(0);
-        foundTouristsByNation.add(touristNationInstance);
-
-        System.out.println(foundTouristsByNation);
-    }*/
 }

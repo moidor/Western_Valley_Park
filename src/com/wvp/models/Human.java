@@ -4,14 +4,18 @@ public abstract class Human {
     // Attributes
     private String name;
     private int age;
+    private final String gender;
     private final String[] visitedRegions;
     protected final String nationality;
+    protected final String country;
 
     // Constructor
-    public Human(String name, int age, String nationality, String... visitedRegions) {
+    public Human(String name, int age, String gender, String nationality, String country, String... visitedRegions) {
         this.name = name;
         this.age = age;
+        this.gender = gender;
         this.nationality = nationality;
+        this.country = country;
         this.visitedRegions = visitedRegions;
     }
 
@@ -31,8 +35,16 @@ public abstract class Human {
         this.age = age;
     }
 
+    public String getGender() {
+        return gender;
+    }
+
     public String getNationality() {
         return nationality;
+    }
+
+    public String getCountry() {
+        return country;
     }
 
     public String getVisitedRegions() {

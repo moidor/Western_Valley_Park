@@ -2,7 +2,7 @@ package com.wvp.enums;
 
 public enum Gender {
     FEMALE("woman"),
-    MAN("man");
+    MALE("man");
 
     private String gender;
 
