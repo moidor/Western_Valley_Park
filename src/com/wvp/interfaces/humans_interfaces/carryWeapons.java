@@ -1,7 +1,7 @@
 package com.wvp.interfaces.humans_interfaces;
 
 public interface carryWeapons {
-    public boolean canCarryWeapon();
+    boolean canCarryWeapons();
 
-    public boolean shootAnimal();
+    String shootAnimal(String animalName);
 }

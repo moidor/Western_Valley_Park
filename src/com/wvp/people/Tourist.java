@@ -4,15 +4,9 @@ import com.wvp.interfaces.humans_interfaces.carryWeapons;
 import com.wvp.models.Human;
 
 public class Tourist extends Human implements carryWeapons {
-    private final int id;
 
     public Tourist(int id, String name, int age, String gender, String nationality, String country, String ... visitedRegions) {
-        super(name, age, gender, nationality, country, visitedRegions);
-        this.id = id;
-    }
-
-    public int getId() {
-        return id;
+        super(id, name, age, gender, nationality, country, visitedRegions);
     }
 
     @Override
@@ -31,13 +25,23 @@ public class Tourist extends Human implements carryWeapons {
     }
 
     @Override
-    public boolean canCarryWeapon() {
+    public boolean canCarryWeapons() {
         return false;
     }
 
     @Override
-    public boolean shootAnimal() {
-        return false;
+    public String shootAnimal(String animalName) {
+        return null;
+    }
+
+    @Override
+    public int getId() {
+        return super.getId();
+    }
+
+    @Override
+    public void setId(int id) {
+        super.setId(id);
     }
 
     @Override

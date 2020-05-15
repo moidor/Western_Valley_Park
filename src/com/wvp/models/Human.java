@@ -2,6 +2,7 @@ package com.wvp.models;
 
 public abstract class Human {
     // Attributes
+    private int id;
     private String name;
     private int age;
     private final String gender;
@@ -10,13 +11,22 @@ public abstract class Human {
     protected final String country;
 
     // Constructor
-    public Human(String name, int age, String gender, String nationality, String country, String... visitedRegions) {
+    public Human(int id, String name, int age, String gender, String nationality, String country, String... visitedRegions) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.nationality = nationality;
         this.country = country;
         this.visitedRegions = visitedRegions;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -74,7 +84,7 @@ public abstract class Human {
         return getVisitedRegions().length() <= 0;
     }
 
-    // Plus tard, insérer plutôt un objet Animal à la place du String alors de rendre plus dynamique
+    // Plus tard, insérer plutôt un objet Animal à la place du String afin de rendre plus dynamique
     public String takePicture(String animalName, String visitedRegion) {
         return getName() + " took a picture of a " + animalName + " in " + visitedRegion;
     }

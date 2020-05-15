@@ -1,4 +1,4 @@
-package com.wvp.people.services.tourists;
+package com.wvp.people.services;
 
 import com.wvp.enums.Gender;
 import com.wvp.enums.Nationality;
@@ -8,11 +8,11 @@ import com.wvp.people.Tourist;
 import java.util.ArrayList;
 
 public class TouristService {
-    private final ArrayList<Tourist> touristList;
+    private final ArrayList<Tourist> touristsList;
 
     // Constructeur
     public TouristService() {
-        this.touristList = new ArrayList<>();
+        this.touristsList = new ArrayList<>();
         this.init();
     }
 
@@ -35,21 +35,21 @@ public class TouristService {
                 ParkRegions.TABLEMOUNTAIN.getRegionName(), ParkRegions.NAMIBIANREDDESERT.getRegionName());
 
 
-        this.touristList.add(brigitte);
-        this.touristList.add(ziad);
-        this.touristList.add(dina);
-        this.touristList.add(jacques);
+        this.touristsList.add(brigitte);
+        this.touristsList.add(ziad);
+        this.touristsList.add(dina);
+        this.touristsList.add(jacques);
     }
 
     public String getTouristInstance(String name) {
-        this.touristList.get(0).getName();
+        this.touristsList.get(0).getName();
         return name;
     }
 
     // Comment intégrer plusieurs ID à la fois
     public ArrayList<Tourist> getLesTouristesById(int touristId) {
         ArrayList<Tourist> listeDeTouristes = new ArrayList<>();
-        for (Tourist t: this.touristList) {
+        for (Tourist t: this.touristsList) {
             if (t.getId() == touristId) {
                 listeDeTouristes.add(t);
             }
@@ -60,7 +60,7 @@ public class TouristService {
     // ON CHERCHE UNIQUEMENT UN NOM
     public ArrayList<Tourist> searchByName(String name) {
         ArrayList<Tourist> result = new ArrayList<>();
-        for (Tourist t: this.touristList) {
+        for (Tourist t: this.touristsList) {
             if (t.getName().toLowerCase().contains(name.toLowerCase())) {
                 result.add(t);
             }
@@ -83,7 +83,7 @@ public class TouristService {
 
     public ArrayList<Tourist> searchByNationality(String nationality) {
         ArrayList<Tourist> result = new ArrayList<>();
-        for (Tourist t: this.touristList) {
+        for (Tourist t: this.touristsList) {
             if (t.getNationality().toLowerCase().contains(nationality.toLowerCase())) {
                 result.add(t);
             }
@@ -94,7 +94,7 @@ public class TouristService {
         }
         /*String conversionInString = foundTouristsByNationality.toString();
         String conversionInString1 = String.join(", ", conversionInString);*/
-        System.out.println("People from " + foundTouristsByNationality);
+        System.out.println("Search result : " + foundTouristsByNationality);
         return result;
     }
 }

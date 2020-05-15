@@ -1,10 +1,9 @@
-package com.wvp.people.services.tourguides;
+package com.wvp.people.services;
 
 import com.wvp.enums.Gender;
 import com.wvp.enums.Nationality;
 import com.wvp.enums.ParkRegions;
 import com.wvp.people.TourGuide;
-import com.wvp.people.services.tourists.TouristService;
 
 import java.util.ArrayList;
 

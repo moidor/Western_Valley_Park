@@ -1,17 +1,11 @@
 package com.wvp;
 
-import com.wvp.enums.ParkRegions;
-import com.wvp.people.TourGuide;
-import com.wvp.people.Tourist;
-import com.wvp.people.services.tourguides.TourGuideService;
-import com.wvp.people.services.tourists.TouristService;
-import com.wvp.species.mammals.Feline;
+import com.wvp.people.services.GuardService;
+import com.wvp.people.services.PoacherService;
+import com.wvp.people.services.TourGuideService;
+import com.wvp.people.services.TouristService;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Scanner;
-
-import static java.util.Arrays.asList;
 
 public class Western_Valley_Park {
 
@@ -19,24 +13,37 @@ public class Western_Valley_Park {
         // Appel de TouristService
         TouristService touristService = new TouristService();
         // Chercher un touriste afin d'afficher les régions visitées
-        System.out.println("Entrez le nom d'un touriste : ");
+        System.out.println("Type a tourist name : ");
         Scanner scanner = new Scanner(System.in);
         String search = scanner.nextLine();
         touristService.touristActivities(search);
         // Chercher un touriste en fonction de sa nationalité
-        System.out.println("Entrez une nationalité : ");
+        System.out.println("Type a tourist nationality : ");
         Scanner scanner2 = new Scanner(System.in);
         String search2 = scanner2.nextLine();
         touristService.searchByNationality(search2);
 
         // Tour guides
         TourGuideService tourGuideService = new TourGuideService();
-        System.out.println("Entrez le nom d'un guide touristique : ");
+        System.out.println("Type a tour guide name : ");
         Scanner scanner3 = new Scanner(System.in);
         String search3 = scanner3.nextLine();
         tourGuideService.tourGuideActivies(search3);
 
+        // Poacher
+        PoacherService poacherService = new PoacherService();
+        System.out.println("Search poacher : ");
+        // condition sur le nombre minimum de caractères lors de la recherche
+        Scanner scanner4 = new Scanner(System.in);
+        String search4 = scanner4.nextLine();
+        poacherService.poacherActivities(search4);
 
+        // Guard
+        GuardService guardService = new GuardService();
+        System.out.println("Search a guard : ");
+        Scanner scanner5 = new Scanner(System.in);
+        String search5 = scanner5.nextLine();
+        guardService.guardActivities(search5);
 
         /*ArrayList<Tourist> resultList = touristService.searchByName(search);
         for (Tourist foundTourist: resultList) {
