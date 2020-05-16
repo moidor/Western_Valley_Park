@@ -33,12 +33,16 @@ public class TouristService {
         Tourist jacques = new Tourist(4, "Jacques", 73, Gender.MALE.getGender(),
                 Nationality.CANADIAN.getNationality(), Nationality.CANADIAN.getCountry(),
                 ParkRegions.TABLEMOUNTAIN.getRegionName(), ParkRegions.NAMIBIANREDDESERT.getRegionName());
+        Tourist mariette = new Tourist(5, "Mariette", 75, Gender.FEMALE.getGender(),
+                Nationality.CANADIAN.getNationality(), Nationality.CANADIAN.getCountry(),
+                ParkRegions.TABLEMOUNTAIN.getRegionName(), ParkRegions.NAMIBIANREDDESERT.getRegionName());
 
 
         this.touristsList.add(brigitte);
         this.touristsList.add(ziad);
         this.touristsList.add(dina);
         this.touristsList.add(jacques);
+        this.touristsList.add(mariette);
     }
 
     public String getTouristInstance(String name) {
@@ -94,7 +98,7 @@ public class TouristService {
         }
         /*String conversionInString = foundTouristsByNationality.toString();
         String conversionInString1 = String.join(", ", conversionInString);*/
-        System.out.println("Search result : " + foundTouristsByNationality);
+        System.out.println("Search result by nationality : " + foundTouristsByNationality);
         return result;
     }
 }

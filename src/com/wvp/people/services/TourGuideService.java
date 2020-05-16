@@ -33,7 +33,8 @@ public class TourGuideService {
         TourGuide michelle = new TourGuide(2, "Michelle", 27,Gender.FEMALE.getGender(),
                 Nationality.NAMIBIAN.getNationality(),
                 Nationality.NAMIBIAN.getCountry(),
-                new String[]{touristService.getTouristInstance("Jacques")},
+                new String[]{touristService.getTouristInstance("Jacques"),
+                touristService.getTouristInstance("Mariette")},
                 ParkRegions.BUCHULAND.getRegionName(),
                 ParkRegions.NAMIBIANREDDESERT.getRegionName(),
                 ParkRegions.TABLEMOUNTAIN.getRegionName());

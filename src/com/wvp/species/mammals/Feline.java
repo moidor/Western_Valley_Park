@@ -1,32 +1,93 @@
 package com.wvp.species.mammals;
 
 import com.wvp.interfaces.animals_interfaces.canSwim;
-import com.wvp.interfaces.animals_interfaces.isCarnivore;
+import com.wvp.interfaces.animals_interfaces.carnivore;
 import com.wvp.models.Animal;
 
-public class Feline extends Animal implements isCarnivore, canSwim {
-    private String name;
-    private int age;
-
-    public Feline(String name, int age) {
-        this.name = name;
-        this.age = age;
+public class Feline extends Animal implements carnivore, canSwim {
+    public Feline(int id, String species, String nickname, int age, int weight, int speed, String gender) {
+        super(id, species, nickname, age, weight, speed, gender);
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public int getId() {
+        return super.getId();
     }
 
-    public void setName(String name) {
-        this.name = name;
+    @Override
+    public void setId(int id) {
+        super.setId(id);
     }
 
+    @Override
+    public String getSpecies() {
+        return super.getSpecies();
+    }
+
+    @Override
+    public void setSpecies(String species) {
+        super.setSpecies(species);
+    }
+
+    @Override
+    public String getNickname() {
+        return super.getNickname();
+    }
+
+    @Override
+    public void setNickname(String nickname) {
+        super.setNickname(nickname);
+    }
+
+    @Override
     public int getAge() {
-        return age;
+        return super.getAge();
     }
 
+    @Override
     public void setAge(int age) {
-        this.age = age;
+        super.setAge(age);
+    }
+
+    @Override
+    public int getWeight() {
+        return super.getWeight();
+    }
+
+    @Override
+    public void setWeight(int weight) {
+        super.setWeight(weight);
+    }
+
+    @Override
+    public int getSpeed() {
+        return super.getSpeed();
+    }
+
+    @Override
+    public void setSpeed(int speed) {
+        super.setSpeed(speed);
+    }
+
+    @Override
+    public String getGender() {
+        return super.getGender();
+    }
+
+    @Override
+    public void setGender(String gender) {
+        super.setGender(gender);
+    }
+
+    @Override
+    public void isImmobile() {
+        super.isImmobile();
+    }
+
+    // Implemented methods
+    @Override
+    public boolean canSwim() {
+        return true;
     }
 
     @Override
@@ -34,8 +95,10 @@ public class Feline extends Animal implements isCarnivore, canSwim {
         return true;
     }
 
+    // REDEFINIR LE CORPS DE LA METHODE AVEC UNE CONDITION POUR AFFICHER L ARTICLE DEFINI A OU AN
+    // EN FONCTION DU SUBSTANTIF SUIVANT DE L ANIMAL QUI EMANERA DIRECTEMENT DE L ENUM ANIMALS
     @Override
-    public boolean canSwim() {
-        return true;
+    public String isHunting(String animalSpecies) {
+        return getNickname() + ", the " + getSpecies() + " is hunting a " + animalSpecies + ".";
     }
 }

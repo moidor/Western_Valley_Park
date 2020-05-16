@@ -1,15 +1,20 @@
 package com.wvp;
 
-import com.wvp.people.services.GuardService;
-import com.wvp.people.services.PoacherService;
-import com.wvp.people.services.TourGuideService;
-import com.wvp.people.services.TouristService;
+import com.wvp.people.services.*;
+import com.wvp.species.mammals.Services.FelineService;
 
 import java.util.Scanner;
 
 public class Western_Valley_Park {
 
     public static void main(String[] args) {
+        // Feline
+        FelineService felineService = new FelineService();
+        System.out.println("Search a feline : ");
+        Scanner scanner7 = new Scanner(System.in);
+        String search7 = scanner7.nextLine();
+        felineService.animalActivities(search7);
+
         // Appel de TouristService
         TouristService touristService = new TouristService();
         // Chercher un touriste afin d'afficher les régions visitées
@@ -44,6 +49,15 @@ public class Western_Valley_Park {
         Scanner scanner5 = new Scanner(System.in);
         String search5 = scanner5.nextLine();
         guardService.guardActivities(search5);
+
+        // Scientist
+        ScientistService scientistService = new ScientistService();
+        System.out.println("Search a scientist : ");
+        Scanner scanner6 = new Scanner(System.in);
+        String search6 = scanner6.nextLine();
+        scientistService.scientistActivies(search6);
+
+
 
         /*ArrayList<Tourist> resultList = touristService.searchByName(search);
         for (Tourist foundTourist: resultList) {

@@ -1,16 +1,22 @@
 package com.wvp.enums;
 
 public enum Gender {
-    FEMALE("woman"),
-    MALE("man");
+    FEMALE("woman", "female"),
+    MALE("man", "male");
 
-    private String gender;
+    private final String gender;
+    private final String animalGender;
 
     public String getGender() {
         return gender;
     }
 
-    Gender(String gender) {
+    public String getAnimalGender() {
+        return animalGender;
+    }
+
+    Gender(String gender, String animalGender) {
         this.gender = gender;
+        this.animalGender = animalGender;
     }
 }

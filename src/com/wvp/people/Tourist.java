@@ -79,25 +79,4 @@ public class Tourist extends Human implements carryWeapons {
         return super.getCountry();
     }
 
-    /*@Override
-    public String getVisitedRegions() {
-        if (visitedRegions.length == 2) {
-            return String.join(" and ", visitedRegions);
-        }
-        else if (visitedRegions.length > 2) {
-            String secondToLastIndex = visitedRegions[visitedRegions.length -2];
-            String lastIndex = visitedRegions[visitedRegions.length - 1];
-            String visitedRegionsString = String.join(", ", visitedRegions);
-            *//* Le prog. va supprimer l'avant-dernier et le dernier index, les virgules avant et après l'avant-dernier index,
-            * puis rajouter l'avant-dernier et dernier index afin d'éviter les doublons. *//*
-            if (visitedRegionsString.contains(secondToLastIndex + ",")) {
-                // Suppression de l'avant-dernier index
-                String removalSecondToLastIndex = visitedRegionsString.replace(secondToLastIndex, "");
-                // Suppression du dernier index
-                String removalLastIndex = removalSecondToLastIndex.replace(lastIndex, "");
-                return removalLastIndex.replace(" ,", "") + secondToLastIndex + "" + " and " + lastIndex;
-            }
-        }
-        return String.join("", visitedRegions);
-    }*/
 }
