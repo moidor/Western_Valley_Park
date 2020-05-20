@@ -17,7 +17,7 @@ public class Scientist extends Human implements carryWeapons {
     }
 
     // Method(s)
-    public String treatAnimal(Scientist scientistName, Animal animalName) {
+    public String treatAnimal(String scientistName, String animalName) {
         return scientistName + " treats " + animalName + ".";
     }
 

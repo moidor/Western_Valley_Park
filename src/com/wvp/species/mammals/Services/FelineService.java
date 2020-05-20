@@ -1,47 +1,37 @@
 package com.wvp.species.mammals.Services;
 
-import com.wvp.enums.Gender;
 import com.wvp.interfaces.animals_interfaces.searchByAnimal;
-import com.wvp.species.enums.Animals;
+import com.wvp.models.Animal;
+import com.wvp.species.AnimalRepository;
 import com.wvp.species.mammals.Feline;
 
 import java.util.ArrayList;
 
 public class FelineService implements searchByAnimal {
-    private final ArrayList<Feline> felinesList;
+    private final AnimalRepository animalRepository;
 
     public FelineService() {
-        this.felinesList = new ArrayList<>();
-        this.init();
+        this.animalRepository = new AnimalRepository();
     }
 
     // Getter
     public ArrayList<Feline> getFelinesList() {
-        return felinesList;
+        return this.animalRepository.getFelineList();
     }
 
-    private void init() {
-        // Feline instances
-        Feline cheetah = new Feline(1, Animals.CHEETAH.getSpecies(), "Speedy", 14,
-                68, 93, Gender.FEMALE.getAnimalGender());
-
-        this.felinesList.add(cheetah);
+    public String getFelineInstance(String name) {
+        this.animalRepository.getFelineList().get(0).getNickname();
+        return name;
     }
 
     @Override
-    public ArrayList<Feline> searchByAnimalSpecies(String felineName) {
-        ArrayList<Feline> result = new ArrayList<>();
-        for (Feline f:this.felinesList) {
-            if (f.getSpecies().toLowerCase().contains(felineName)) {
-                result.add(f);
-            }
-        }
-        return result;
+    public ArrayList<Animal> searchByAnimalSpecies(String felineName) {
+        return null;
     }
 
     @Override
     public void animalActivities(String searchedAnimal) {
-        Feline foundFeline = this.searchByAnimalSpecies(searchedAnimal).get(0);
-        System.out.println(foundFeline.isHunting("antelope"));
+        /*Feline foundFeline = this.searchByAnimalSpecies(searchedAnimal).get(0);
+        System.out.println(foundFeline.isCarnivore());*/
     }
 }

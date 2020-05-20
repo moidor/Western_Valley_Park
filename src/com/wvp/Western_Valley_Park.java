@@ -8,12 +8,21 @@ import java.util.Scanner;
 public class Western_Valley_Park {
 
     public static void main(String[] args) {
+        // Scientist
+        ScientistService scientistService = new ScientistService();
+        System.out.println("Search a scientist : ");
+        Scanner scanner6 = new Scanner(System.in);
+        Scanner scanner8 = new Scanner(System.in);
+        String search6 = scanner6.nextLine();
+        String search8 = scanner8.nextLine();
+        scientistService.scientistActivities(search6, search8);
+
         // Feline
-        FelineService felineService = new FelineService();
+        /*FelineService felineService = new FelineService(animalRepository);
         System.out.println("Search a feline : ");
         Scanner scanner7 = new Scanner(System.in);
         String search7 = scanner7.nextLine();
-        felineService.animalActivities(search7);
+        felineService.animalActivities(search7);*/
 
         // Appel de TouristService
         TouristService touristService = new TouristService();
@@ -50,12 +59,7 @@ public class Western_Valley_Park {
         String search5 = scanner5.nextLine();
         guardService.guardActivities(search5);
 
-        // Scientist
-        ScientistService scientistService = new ScientistService();
-        System.out.println("Search a scientist : ");
-        Scanner scanner6 = new Scanner(System.in);
-        String search6 = scanner6.nextLine();
-        scientistService.scientistActivies(search6);
+
 
 
 

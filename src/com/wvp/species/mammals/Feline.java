@@ -5,8 +5,10 @@ import com.wvp.interfaces.animals_interfaces.carnivore;
 import com.wvp.models.Animal;
 
 public class Feline extends Animal implements carnivore, canSwim {
+    private carnivore carnivore;
     public Feline(int id, String species, String nickname, int age, int weight, int speed, String gender) {
         super(id, species, nickname, age, weight, speed, gender);
+        this.carnivore = carnivore;
     }
 
     @Override
