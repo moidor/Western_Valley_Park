@@ -6,8 +6,8 @@ import com.wvp.models.Animal;
 
 public class Feline extends Animal implements carnivore, canSwim {
     private carnivore carnivore;
-    public Feline(int id, String species, String nickname, int age, int weight, int speed, String gender) {
-        super(id, species, nickname, age, weight, speed, gender);
+    public Feline(int id, String species, String family, String nickname, int age, int weight, int speed, String gender) {
+        super(id, species, nickname, age, weight, speed, gender, family);
         this.carnivore = carnivore;
     }
 
@@ -29,6 +29,16 @@ public class Feline extends Animal implements carnivore, canSwim {
     @Override
     public void setSpecies(String species) {
         super.setSpecies(species);
+    }
+
+    @Override
+    public String getFamily() {
+        return super.getFamily();
+    }
+
+    @Override
+    public void setFamily(String family) {
+        super.setFamily(family);
     }
 
     @Override

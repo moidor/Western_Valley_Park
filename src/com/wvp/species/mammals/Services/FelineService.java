@@ -14,7 +14,7 @@ public class FelineService implements searchByAnimal {
         this.animalRepository = new AnimalRepository();
     }
 
-    // Getter
+    // Getters
     public ArrayList<Feline> getFelinesList() {
         return this.animalRepository.getFelineList();
     }

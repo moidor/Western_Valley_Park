@@ -4,6 +4,7 @@ public abstract class Animal {
     // Attributes
     private int id;
     private String species;
+    private String family;
     private String nickname;
     private int age;
     private int weight;
@@ -11,7 +12,7 @@ public abstract class Animal {
     private String gender;
 
     // Constructor
-    public Animal(int id, String species, String nickname, int age, int weight, int speed, String gender) {
+    public Animal(int id, String species, String nickname, int age, int weight, int speed, String gender, String family) {
         this.id = id;
         this.species = species;
         this.nickname = nickname;
@@ -19,6 +20,7 @@ public abstract class Animal {
         this.weight = weight;
         this.speed = speed;
         this.gender = gender;
+        this.family = family;
     }
 
     // Methods
@@ -36,6 +38,14 @@ public abstract class Animal {
 
     public void setSpecies(String species) {
         this.species = species;
+    }
+
+    public String getFamily() {
+        return family;
+    }
+
+    public void setFamily(String family) {
+        this.family = family;
     }
 
     public String getNickname() {

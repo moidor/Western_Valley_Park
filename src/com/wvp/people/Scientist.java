@@ -8,12 +8,14 @@ import com.wvp.models.Human;
 public class Scientist extends Human implements carryWeapons {
     // Attributes/fields
     private final String rangeOfExpertise;
+    private final String rangeOfExpertisePlural;
 
     // Constructor
     public Scientist(int id, String name, int age, String gender, String nationality, String country,
-                     String rangeOfExpertise, String... visitedRegions) {
+                     String rangeOfExpertise, String rangeOfExpertisePlural, String... visitedRegions) {
         super(id, name, age, gender, nationality, country, visitedRegions);
         this.rangeOfExpertise = rangeOfExpertise;
+        this.rangeOfExpertisePlural = rangeOfExpertisePlural;
     }
 
     // Method(s)
@@ -23,6 +25,10 @@ public class Scientist extends Human implements carryWeapons {
 
     public String getRangeOfExpertise() {
         return rangeOfExpertise;
+    }
+
+    public String getRangeOfExpertisePlural() {
+        return rangeOfExpertisePlural;
     }
 
     // Implemented methods

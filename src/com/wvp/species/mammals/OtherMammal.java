@@ -3,10 +3,11 @@ package com.wvp.species.mammals;
 import com.wvp.models.Animal;
 
 public class OtherMammal extends Animal {
-    private int numberOfLegs;
+    private final int numberOfLegs;
 
-    public OtherMammal(int id, String species, String nickname, int age, int weight, int speed, String gender) {
-        super(id, species, nickname, age, weight, speed, gender);
+    public OtherMammal(int id, String species, String family, String nickname, int age, int weight, int speed, String gender, int numberOfLegs) {
+        super(id, species, nickname, age, weight, speed, gender, family);
+        this.numberOfLegs = numberOfLegs;
     }
 
     // implémentation de l'interface "isHorned"

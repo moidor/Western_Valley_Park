@@ -1,6 +1,7 @@
 package com.wvp;
 
 import com.wvp.people.services.*;
+import com.wvp.species.AnimalRepository;
 import com.wvp.species.mammals.Services.FelineService;
 
 import java.util.Scanner;
@@ -8,6 +9,13 @@ import java.util.Scanner;
 public class Western_Valley_Park {
 
     public static void main(String[] args) {
+        // Animal
+        System.out.println("Search by animal family");
+        Scanner scanner9 = new Scanner(System.in);
+        String search9 = scanner9.nextLine();
+        AnimalRepository animalRepository = new AnimalRepository();
+        animalRepository.getAnimalsBySpecies(search9);
+
         // Scientist
         ScientistService scientistService = new ScientistService();
         System.out.println("Search a scientist : ");

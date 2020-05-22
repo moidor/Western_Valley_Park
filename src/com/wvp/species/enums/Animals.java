@@ -1,6 +1,7 @@
 package com.wvp.species.enums;
 
 public enum Animals {
+    // Species
     MAMMAL("mammal", "mammals"),
     EGGLAYING("egg-laying", "egg-layings"),
     // Felines
@@ -11,7 +12,11 @@ public enum Animals {
     JAGUAR("jaguar", "jaguars"),
     SERVAL("serval", "servals"),
     CARACAL("caracal", "caracals"),
-    RHINOCEROS("rhino", "rhinos");
+    // Pachyderms
+    RHINOCEROS("rhino", "rhinos"),
+    ELEPHANT("elephant", "elephants"),
+    // Other mammals
+    GIRAFFE("giraffe", "giraffes");
 
     private final String species;
     private final String speciesPlural;

@@ -5,7 +5,7 @@ public enum Nationality {
     NAMIBIAN("Namibia", "Namibian"),
     MOZAMBICAN("Mozambique", "Mozambican"),
     FRENCH("France", "French"),
-    DUTCH("the Nertherlands", "Dutch"),
+    DUTCH("the Netherlands", "Dutch"),
     AMERICAN("the United States", "American"),
     CANADIAN("Canada", "Canadian"),
     JAPANESE("Japan", "Japanese");

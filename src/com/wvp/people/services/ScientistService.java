@@ -5,10 +5,9 @@ import com.wvp.enums.Nationality;
 import com.wvp.enums.ParkRegions;
 import com.wvp.enums.RangeOfExpertise;
 import com.wvp.interfaces.animals_interfaces.searchByAnimal;
+import com.wvp.models.Animal;
 import com.wvp.people.Scientist;
 import com.wvp.species.AnimalRepository;
-import com.wvp.species.mammals.Feline;
-import com.wvp.species.mammals.Services.FelineService;
 
 import java.util.ArrayList;
 
@@ -24,10 +23,12 @@ public class ScientistService implements searchByAnimal {
         // Scientist instances
         Scientist julia = new Scientist(1, "Julia", 25, Gender.FEMALE.getGender(),
                 Nationality.AMERICAN.getNationality(), Nationality.AMERICAN.getCountry(),
-                RangeOfExpertise.FELINE.getRangeOfExpertise(), ParkRegions.ANTELOPESVALLEY.getRegionName());
+                RangeOfExpertise.FELINE.getRangeOfExpertise(), RangeOfExpertise.FELINE.getRangeOfExpertisePlural(),
+                ParkRegions.ANTELOPESVALLEY.getRegionName());
         Scientist joshua = new Scientist(2, "Joshua", 32, Gender.MALE.getGender(),
                 Nationality.DUTCH.getNationality(), Nationality.DUTCH.getCountry(),
-                RangeOfExpertise.PACHYDERM.getRangeOfExpertise(), ParkRegions.KUDUSCAMP.getRegionName());
+                RangeOfExpertise.PACHYDERM.getRangeOfExpertise(), RangeOfExpertise.PACHYDERM.getRangeOfExpertisePlural(),
+                ParkRegions.KUDUSCAMP.getRegionName());
 
         this.scientistsList.add(julia);
         this.scientistsList.add(joshua);
@@ -57,25 +58,20 @@ public class ScientistService implements searchByAnimal {
 
     }
 
-    FelineService felineService = new FelineService();
+    AnimalRepository animalRepository = new AnimalRepository();
     public void scientistActivities(String scientistName, String animalName) {
         Scientist foundScientist = this.searchByName(scientistName).get(0);
-        Feline foundFeline = this.felineService.getFelinesList().get(0);
-        System.out.println(foundScientist.getName() + " from " + foundScientist.getCountry()
-                + " is taking care of " + foundFeline.getNickname() + " the " + foundFeline.getSpecies() +
-                ". " + foundScientist.treatAnimal(foundScientist.getName(), foundFeline.getNickname()));
+        Animal foundAnimal = this.animalRepository.searchByAnimalName(animalName).get(0);
+        if (foundScientist.getRangeOfExpertise().equals(foundAnimal.getFamily())) {
+            System.out.println(foundScientist.getName() + " from " + foundScientist.getCountry()
+            + " is taking care of " + foundAnimal.getNickname() + " the " + foundAnimal.getSpecies() +
+            ". " + foundScientist.treatAnimal(foundScientist.getName(), foundAnimal.getNickname()));
+        } else {
+            System.out.println(foundScientist.getName() +
+                    ", specialist of " + foundScientist.getRangeOfExpertisePlural()
+                    + "," + " cannot treat " + foundAnimal.getNickname() +
+                    " which belongs to the " + foundAnimal.getFamily() + " family.");
+        }
     }
 
-    /*public void scientistActivies(String scientistName, String animalName) {
-        Scientist foundScientist = this.searchByName(scientistName).get(0);
-        Feline foundFeline = (Feline) this.searchByAnimalSpecies(animalName).get(0);
-        if (foundScientist.getRangeOfExpertise().equals(foundFeline.getSpecies())) {
-            System.out.println(foundScientist.getName() + " from " + foundScientist.getCountry()
-                    + " is taking care of " + foundFeline.getNickname() + " the " + foundFeline.getSpecies() +
-                    ". " + foundScientist.treatAnimal(foundScientist.getName(), foundFeline.getNickname())
-            );
-        } else {
-            System.out.println(foundScientist.getName() + " ne peut pas soigner cet animal...");
-        }
-    }*/
 }
