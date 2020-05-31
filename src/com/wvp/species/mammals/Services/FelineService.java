@@ -25,7 +25,7 @@ public class FelineService implements searchByAnimal {
     }
 
     @Override
-    public ArrayList<Animal> searchByAnimalSpecies(String felineName) {
+    public ArrayList<Animal> searchByAnimalName(String felineName) {
         return null;
     }
 

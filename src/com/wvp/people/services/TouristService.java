@@ -1,59 +1,23 @@
 package com.wvp.people.services;
 
-import com.wvp.enums.Gender;
-import com.wvp.enums.Nationality;
 import com.wvp.enums.ParkRegions;
 import com.wvp.people.Tourist;
+import com.wvp.people.repositories.TouristRepository;
 
 import java.util.ArrayList;
 
 public class TouristService {
-    private final ArrayList<Tourist> touristsList;
-
-    // Constructeur
-    public TouristService() {
-        this.touristsList = new ArrayList<>();
-        this.init();
-    }
-
-    private void init() {
-        // French tourists
-        Tourist brigitte = new Tourist(1, "Brigitte", 64, Gender.FEMALE.getGender(),
-                Nationality.FRENCH.getNationality(), Nationality.FRENCH.getCountry(),
-                ParkRegions.KUDUSCAMP.getRegionName(),
-                ParkRegions.ANTELOPESVALLEY.getRegionName(), ParkRegions.ROOIBOSBERG.getRegionName(),
-                ParkRegions.BUCHULAND.getRegionName());
-        Tourist ziad = new Tourist(2, "Ziad", 1, Gender.MALE.getGender(),
-                Nationality.FRENCH.getNationality(), Nationality.FRENCH.getCountry(),
-                ParkRegions.MUIZENBERG.getRegionName(),
-                ParkRegions.CAPESUGARBIRDPROTEA.getRegionName(), ParkRegions.GANSBAII.getRegionName());
-        Tourist dina = new Tourist(3, "Dina", 4, Gender.FEMALE.getGender(),
-                Nationality.FRENCH.getNationality(), Nationality.FRENCH.getCountry());
-        // Canadian tourists
-        Tourist jacques = new Tourist(4, "Jacques", 73, Gender.MALE.getGender(),
-                Nationality.CANADIAN.getNationality(), Nationality.CANADIAN.getCountry(),
-                ParkRegions.TABLEMOUNTAIN.getRegionName(), ParkRegions.NAMIBIANREDDESERT.getRegionName());
-        Tourist mariette = new Tourist(5, "Mariette", 75, Gender.FEMALE.getGender(),
-                Nationality.CANADIAN.getNationality(), Nationality.CANADIAN.getCountry(),
-                ParkRegions.TABLEMOUNTAIN.getRegionName(), ParkRegions.NAMIBIANREDDESERT.getRegionName());
-
-
-        this.touristsList.add(brigitte);
-        this.touristsList.add(ziad);
-        this.touristsList.add(dina);
-        this.touristsList.add(jacques);
-        this.touristsList.add(mariette);
-    }
+    TouristRepository touristRepository = new TouristRepository();
 
     public String getTouristInstance(String name) {
-        this.touristsList.get(0).getName();
+        this.touristRepository.getTouristsList().get(0).getName();
         return name;
     }
 
     // Comment intégrer plusieurs ID à la fois
     public ArrayList<Tourist> getLesTouristesById(int touristId) {
         ArrayList<Tourist> listeDeTouristes = new ArrayList<>();
-        for (Tourist t: this.touristsList) {
+        for (Tourist t: this.touristRepository.getTouristsList()) {
             if (t.getId() == touristId) {
                 listeDeTouristes.add(t);
             }
@@ -64,7 +28,7 @@ public class TouristService {
     // ON CHERCHE UNIQUEMENT UN NOM
     public ArrayList<Tourist> searchByName(String name) {
         ArrayList<Tourist> result = new ArrayList<>();
-        for (Tourist t: this.touristsList) {
+        for (Tourist t: this.touristRepository.getTouristsList()) {
             if (t.getName().toLowerCase().contains(name.toLowerCase())) {
                 result.add(t);
             }
@@ -87,7 +51,7 @@ public class TouristService {
 
     public ArrayList<Tourist> searchByNationality(String nationality) {
         ArrayList<Tourist> result = new ArrayList<>();
-        for (Tourist t: this.touristsList) {
+        for (Tourist t: this.touristRepository.getTouristsList()) {
             if (t.getNationality().toLowerCase().contains(nationality.toLowerCase())) {
                 result.add(t);
             }

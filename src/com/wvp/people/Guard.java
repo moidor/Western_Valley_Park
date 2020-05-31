@@ -1,7 +1,12 @@
 package com.wvp.people;
 
+import com.wvp.exceptions.NoNameException;
 import com.wvp.interfaces.humans_interfaces.carryWeapons;
+import com.wvp.models.Animal;
 import com.wvp.models.Human;
+import com.wvp.people.repositories.GuardRepository;
+import com.wvp.people.services.GuardService;
+import com.wvp.species.AnimalRepository;
 
 public class Guard extends Human implements carryWeapons {
     // Attributes
@@ -22,7 +27,7 @@ public class Guard extends Human implements carryWeapons {
         return true;
     }
 
-    public String arrestPeople(String poacherName) {
+    public String arrestPeople() {
         return "The " + getNationality() + " guard called " + getName() + " arrested "
                 + getArrestedPoachers() + ".";
     }
@@ -75,9 +80,14 @@ public class Guard extends Human implements carryWeapons {
     }
 
     @Override
-    public String shootAnimal(String animalName) {
-        return "In self-defense, the " + getNationality() + " guard " + getName() + " killed a " + animalName + ".";
-
+    public String shootAnimal(String guardName, String animalName) {
+        AnimalRepository animalRepository = new AnimalRepository();
+        GuardService guardService = new GuardService();
+        Guard foundGuard = guardService.searchByName(guardName).get(0);
+        Animal foundAnimal = animalRepository.searchByAnimalName(animalName).get(0);
+        System.out.println("In self-defense, the " + foundGuard.getNationality() + " guard "
+                + foundGuard.getName() + " shot " + foundAnimal.getNickname() + ".");
+        return null;
     }
 
     // Overriden methods from "Human"

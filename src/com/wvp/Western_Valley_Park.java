@@ -1,14 +1,87 @@
 package com.wvp;
 
+import com.wvp.exceptions.InputTypeError;
+import com.wvp.exceptions.NoNameException;
+import com.wvp.people.Guard;
+import com.wvp.people.repositories.GuardRepository;
 import com.wvp.people.services.*;
 import com.wvp.species.AnimalRepository;
 import com.wvp.species.mammals.Services.FelineService;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class Western_Valley_Park {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InputTypeError {
+
+        Scanner sc = new Scanner(System.in);
+        int response;
+        int response1;
+        // Boucle while
+        while (true) {
+            System.out.println("Choose in the menu : ");
+            //assert false;
+            response = sc.nextInt();
+            try {
+                if (response == 1) {
+                    GuardService guardService = new GuardService();
+                    System.out.println("Search a guard : ");
+                    Scanner scanner5 = new Scanner(System.in);
+                    String search5 = scanner5.nextLine();
+                    System.out.println("Search a guard who shot an animal : ");
+                    Scanner scanner11 = new Scanner(System.in);
+                    String search11 = scanner11.nextLine();
+                    Scanner scanner12 = new Scanner(System.in);
+                    String search12 = scanner12.nextLine();
+                    guardService.guardActivities(search5);
+                    GuardRepository guardRepository = new GuardRepository();
+                    Guard instanceGuard = guardRepository.getGuardsList().get(0);
+                    instanceGuard.shootAnimal(search11, search12);
+                } else if (response == 2) {
+                    System.out.println("Show every animal : ");
+                    System.out.println("Search an animal by name : ");
+                    AnimalRepository animalRepository = new AnimalRepository();
+                    // boucle pour afficher les animaux
+                    animalRepository.getEveryAnimal();
+                } else if (response == 3) {
+                    System.out.println("Fin du programme");
+                    break;
+                } else if (response == 4) {
+                    // Animal
+                    System.out.println("Search by animal family");
+                    Scanner scanner9 = new Scanner(System.in);
+                    String search9 = scanner9.nextLine();
+                    AnimalRepository animalRepository = new AnimalRepository();
+                    animalRepository.getAnimalsBySpecies(search9);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                e.getMessage();
+                e.getMessage();
+            }
+
+
+        }
+
+
+        /*// Guard
+        GuardService guardService = new GuardService();
+        System.out.println("Search a guard : ");
+        Scanner scanner5 = new Scanner(System.in);
+        String search5 = scanner5.nextLine();
+        System.out.println("Search a guard");
+        Scanner scanner11 = new Scanner(System.in);
+        String search11 = scanner11.nextLine();
+        Scanner scanner12 = new Scanner(System.in);
+        String search12 = scanner12.nextLine();
+        guardService.guardActivities(search5);
+        GuardRepository guardRepository = new GuardRepository();
+        Guard instanceGuard = guardRepository.getGuardsList().get(0);
+        instanceGuard.shootAnimal(search11, search12);
+
+
+
         // Animal
         System.out.println("Search by animal family");
         Scanner scanner9 = new Scanner(System.in);
@@ -26,11 +99,11 @@ public class Western_Valley_Park {
         scientistService.scientistActivities(search6, search8);
 
         // Feline
-        /*FelineService felineService = new FelineService(animalRepository);
+        *//*FelineService felineService = new FelineService(animalRepository);
         System.out.println("Search a feline : ");
         Scanner scanner7 = new Scanner(System.in);
         String search7 = scanner7.nextLine();
-        felineService.animalActivities(search7);*/
+        felineService.animalActivities(search7);*//*
 
         // Appel de TouristService
         TouristService touristService = new TouristService();
@@ -58,36 +131,33 @@ public class Western_Valley_Park {
         // condition sur le nombre minimum de caractères lors de la recherche
         Scanner scanner4 = new Scanner(System.in);
         String search4 = scanner4.nextLine();
-        poacherService.poacherActivities(search4);
-
-        // Guard
-        GuardService guardService = new GuardService();
-        System.out.println("Search a guard : ");
-        Scanner scanner5 = new Scanner(System.in);
-        String search5 = scanner5.nextLine();
-        guardService.guardActivities(search5);
+        Scanner scanner10 = new Scanner(System.in);
+        String search10 = scanner10.nextLine();
+        poacherService.poacherActivities(search4, search10);
 
 
 
 
 
-        /*ArrayList<Tourist> resultList = touristService.searchByName(search);
+
+
+        *//*ArrayList<Tourist> resultList = touristService.searchByName(search);
         for (Tourist foundTourist: resultList) {
             System.out.println(foundTourist.getName() + " visited "
                     + foundTourist.getVisitedRegions() + ". "
                     + foundTourist.takePicture("cheetah", ParkRegions.KUDUSCAMP.getRegionName()));
-        }*/
+        }*//*
 
-        /* Scanner scannerNationality = new Scanner(System.in);
+        *//* Scanner scannerNationality = new Scanner(System.in);
         String searchByNationality = scannerNationality.nextLine();
         ArrayList<Tourist> resultListByNationality = touristService.searchByNationality(searchByNationality);
         for (Tourist result: resultListByNationality) {
             System.out.println(result.getName());
-        }*/
+        }*//*
 
 
 
-/*
+*//*
         Feline cheetah = new Feline("cheetah", 10);
         // Region enum
         ParkRegions kuduscamp = ParkRegions.KUDUSCAMP;
@@ -103,10 +173,10 @@ public class Western_Valley_Park {
 
         // Nationality
         Nationality french = Nationality.FRENCH;
-        System.out.println(brigitte.getName() + " is " + brigitte.getNationality());*/
+        System.out.println(brigitte.getName() + " is " + brigitte.getNationality());*//*
 
         // HashMap avec input clavier
-/*
+*//*
         HashMap<Integer, String> touristes = new HashMap();
         touristes.put(1, "Brigitte");
         touristes.put(2, "Ziad");
@@ -117,9 +187,9 @@ public class Western_Valley_Park {
         int touristKey = scanner1.nextInt();
         System.out.println(touristes.getOrDefault(touristKey, "Client inexistant dans la base de données."));
 
-*/
+*//*
         // Interaction clavier
-        /*Scanner scanner2 = new Scanner(System.in);
+        *//*Scanner scanner2 = new Scanner(System.in);
         System.out.println("2. Quel(le) touriste voulez-vous afficher ?");
         int touristId = scanner2.nextInt();
         if (touristId == 1) {

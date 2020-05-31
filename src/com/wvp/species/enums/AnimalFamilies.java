@@ -14,10 +14,12 @@ public enum AnimalFamilies {
     // Attributes
     private final String family;
 
+    // Constructor
     AnimalFamilies(String family) {
         this.family = family;
     }
 
+    // Getter
     public String getFamily() {
         return family;
     }

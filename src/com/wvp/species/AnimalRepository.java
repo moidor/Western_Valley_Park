@@ -1,6 +1,7 @@
 package com.wvp.species;
 
 import com.wvp.enums.Gender;
+import com.wvp.interfaces.animals_interfaces.searchByAnimal;
 import com.wvp.models.Animal;
 import com.wvp.species.enums.AnimalFamilies;
 import com.wvp.species.enums.Animals;
@@ -10,8 +11,7 @@ import com.wvp.species.mammals.Pachyderm;
 
 import java.util.ArrayList;
 
-public class AnimalRepository {
-    private static final Object T = null;
+public class AnimalRepository implements searchByAnimal {
     // Déclaration d'une variable VIDE dans la mémoire du PC afin de la remplir après
     private final ArrayList<Animal> animalList;
 
@@ -25,6 +25,8 @@ public class AnimalRepository {
     public ArrayList<Animal> getAnimalList() {
         return animalList;
     }
+
+
 
     public ArrayList<Feline> getFelineList() {
         ArrayList<Feline> result = new ArrayList<>();
@@ -46,6 +48,12 @@ public class AnimalRepository {
         return result;
     }
 
+    public void getEveryAnimal() {
+        for (Animal animal: this.animalList) {
+            System.out.println(animal.getNickname() + ", the " + animal.getSpecies());
+        }
+    }
+
     // Generic method
     public <T extends Animal> void getAnimalsBySpecies(String animalFamily) {
         ArrayList<T> result = new ArrayList<>();
@@ -61,6 +69,7 @@ public class AnimalRepository {
         System.out.println("Search result by animal family : " + foundGenericAnimalFamily);
     }
 
+    @Override
     public ArrayList<Animal> searchByAnimalName(String animalName) {
         ArrayList<Animal> result = new ArrayList<>();
         for (Animal animal: this.animalList) {
@@ -71,7 +80,12 @@ public class AnimalRepository {
         return result;
     }
 
-    // Animal instances
+    @Override
+    public void animalActivities(String searchedAnimal) {
+
+    }
+
+    //*** Animal instances ***//
     private void animalInit() {
         // Feline instances
         Feline cheetah = new Feline(1, Animals.CHEETAH.getSpecies(), AnimalFamilies.FELINE.getFamily(),

@@ -1,48 +1,25 @@
 package com.wvp.people.services;
 
-import com.wvp.enums.Gender;
-import com.wvp.enums.Nationality;
-import com.wvp.enums.ParkRegions;
+import com.wvp.models.Animal;
 import com.wvp.people.Poacher;
+import com.wvp.people.repositories.PoacherRepository;
+import com.wvp.species.AnimalRepository;
 
 import java.util.ArrayList;
 
 public class PoacherService {
-    private final ArrayList<Poacher> poachersList;
-
-    public PoacherService() {
-        this.poachersList = new ArrayList<>();
-        this.init();
-    }
-
-    private void init() {
-        // Poacher instances
-        // Ajouter un tableau d'animaux tués
-        Poacher john = new Poacher(1, "John", 43, Gender.MALE.getGender(), Nationality.MOZAMBICAN.getNationality(),
-                Nationality.MOZAMBICAN.getCountry(), "shotgun", "machete",
-                ParkRegions.KUDUSCAMP.getRegionName());
-        Poacher mark = new Poacher(2, "Mark", 37, Gender.MALE.getGender(), Nationality.NAMIBIAN.getNationality(),
-                Nationality.NAMIBIAN.getCountry(), "assault rifle", "sword",
-                ParkRegions.NAMIBIANREDDESERT.getRegionName());
-
-        poachersList.add(john);
-        poachersList.add(mark);
-    }
-
-    // Show the list of poachers
-    public ArrayList<Poacher> getPoachersList() {
-        return poachersList;
-    }
+    PoacherRepository poacherRepository = new PoacherRepository();
+    AnimalRepository animalRepository = new AnimalRepository();
 
     // Get poacher instance
     public String getPoacherInstance(String name) {
-        this.poachersList.get(0).getName();
+        this.poacherRepository.getPoachersList().get(0).getName();
         return name;
     }
 
     public ArrayList<Poacher> searchByName(String poacherName) {
         ArrayList<Poacher> result = new ArrayList<>();
-        for (Poacher p: this.poachersList) {
+        for (Poacher p: this.poacherRepository.getPoachersList()) {
             if (p.getName().toLowerCase().contains(poacherName)) {
                 result.add(p);
             }
@@ -50,9 +27,10 @@ public class PoacherService {
         return result;
     }
 
-    public void poacherActivities(String poacherName) {
+    public void poacherActivities(String poacherName, String animalName) {
        Poacher foundPoacher = this.searchByName(poacherName).get(0);
+        Animal foundAnimal = this.animalRepository.searchByAnimalName(animalName).get(0);
        // System.out.println("The " + foundPoacher.getNationality() + " poacher " + foundPoacher.getName());
-        System.out.println(foundPoacher.shootAnimal("giraffe"));
+        //System.out.println(foundPoacher.shootAnimal(foundAnimal.getNickname()));
     }
 }

@@ -38,7 +38,7 @@ public class Scientist extends Human implements carryWeapons {
     }
 
     @Override
-    public String shootAnimal(String animalName) {
+    public String shootAnimal(String humanName, String animalName) {
         return null;
     }
 

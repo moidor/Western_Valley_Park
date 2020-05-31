@@ -26,8 +26,8 @@ public class Poacher extends Human implements carryWeapons {
 
     @Override
     // Intégrer un paramètre référençant le lieu d'origine de l'animal pour l'afficher dans le retour
-    public String shootAnimal(String animalName) {
-        return "A " + getNationality() + " poacher called " + getName() + " killed a " + animalName +
+    public String shootAnimal(String humanName, String animalName) {
+        return "A " + getNationality() + " poacher called " + getName() + " killed " + animalName +
                 " with a " + getLiveRoundsRifle() + ".";
     }
 
