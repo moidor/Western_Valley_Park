@@ -37,4 +37,12 @@ public class ScientistService {
         }
     }
 
+    public void getEveryScientist() {
+        for (Scientist scientist : this.scientistRepository.getScientistsList()) {
+            System.out.println("Name : " + scientist.getName() + ", nationality : " + scientist.getNationality() +
+                    ", gender : " + scientist.getGender() +
+                    ", expertise : " + scientist.getRangeOfExpertisePlural() + ", visited regions : " + scientist.getVisitedRegions() + ".");
+        }
+    }
+
 }

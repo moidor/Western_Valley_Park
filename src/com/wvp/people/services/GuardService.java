@@ -13,18 +13,25 @@ public class GuardService {
     public ArrayList<Guard> searchByName(String guardName) {
         ArrayList<Guard> result = new ArrayList<>();
         for (Guard g: this.guardRepository.getGuardsList()) {
-            if (g.getName().toLowerCase().contains(guardName)) {
-                result.add(g);
+                if (g.getName().toLowerCase().contains(guardName)) {
+                    result.add(g);
+                }
+                /*else if (!g.getName().toLowerCase().contains(guardName)) {
+                    System.out.println("Guard not found");
+                }*/
             }
-            /*else if (!g.getName().toLowerCase().contains(guardName)) {
-                throw new NoFoundIndexNameException();
-            }*/
-        }
         return result;
     }
 
     public void guardActivities(String guardName){
         Guard foundGuard = this.searchByName(guardName).get(0);
         System.out.println(foundGuard.arrestPeople());
+    }
+
+    public void getEveryGuard() {
+        for (Guard g: this.guardRepository.getGuardsList()) {
+            System.out.println("Name : " + g.getName() + ", nationality : " + g.getNationality() +
+                    ", gender : " + g.getGender() + ", visited regions : " + g.getVisitedRegions() + ".");
+        }
     }
 }

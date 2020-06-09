@@ -1,5 +1,7 @@
 package com.wvp.models;
 
+import java.io.Serializable;
+
 public abstract class Animal {
     // Attributes
     private int id;

@@ -25,6 +25,13 @@ public class TouristService {
         return listeDeTouristes;
     }
 
+    public void getEveryTourist() {
+        for (Tourist tourist: this.touristRepository.getTouristsList()) {
+            System.out.println(tourist.getName() +
+                    ", gender : " + tourist.getGender() + ", from " + tourist.getCountry() + ".");
+        }
+    }
+
     // ON CHERCHE UNIQUEMENT UN NOM
     public ArrayList<Tourist> searchByName(String name) {
         ArrayList<Tourist> result = new ArrayList<>();

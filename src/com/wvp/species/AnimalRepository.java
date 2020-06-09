@@ -50,7 +50,8 @@ public class AnimalRepository implements searchByAnimal {
 
     public void getEveryAnimal() {
         for (Animal animal: this.animalList) {
-            System.out.println(animal.getNickname() + ", the " + animal.getSpecies());
+            System.out.println(animal.getNickname() + ", the " + animal.getSpecies() + " from the " +
+                    animal.getFamily() + " family.");
         }
     }
 

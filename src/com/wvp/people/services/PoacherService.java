@@ -17,6 +17,16 @@ public class PoacherService {
         return name;
     }
 
+    // Get every poacher
+    public void getEveryPoacher() {
+        for (Poacher poacher: this.poacherRepository.getPoachersList()) {
+            System.out.println("Name : " + poacher.getName() + ", nationality : " + poacher.getNationality() +
+                    ", gender : " + poacher.getGender() +
+                    ", weapons : " + poacher.getLiveRoundsRifle() +
+                    " and " + poacher.getBladedWeapon() + ", visited regions : " + poacher.getVisitedRegions() + ".");
+        }
+    }
+
     public ArrayList<Poacher> searchByName(String poacherName) {
         ArrayList<Poacher> result = new ArrayList<>();
         for (Poacher p: this.poacherRepository.getPoachersList()) {
@@ -29,8 +39,8 @@ public class PoacherService {
 
     public void poacherActivities(String poacherName, String animalName) {
        Poacher foundPoacher = this.searchByName(poacherName).get(0);
-        Animal foundAnimal = this.animalRepository.searchByAnimalName(animalName).get(0);
-       // System.out.println("The " + foundPoacher.getNationality() + " poacher " + foundPoacher.getName());
-        //System.out.println(foundPoacher.shootAnimal(foundAnimal.getNickname()));
+       Animal foundAnimal = this.animalRepository.searchByAnimalName(animalName).get(0);
+       //System.out.println("The " + foundPoacher.getNationality() + " poacher " + foundPoacher.getName());
+       System.out.println(foundPoacher.shootAnimal(foundPoacher.getName(), foundAnimal.getNickname()));
     }
 }
