@@ -5,7 +5,9 @@ import com.wvp.interfaces.humans_interfaces.carryWeapons;
 import com.wvp.models.Animal;
 import com.wvp.models.Human;
 import com.wvp.people.repositories.GuardRepository;
+import com.wvp.people.repositories.PoacherRepository;
 import com.wvp.people.services.GuardService;
+import com.wvp.people.services.PoacherService;
 import com.wvp.species.AnimalRepository;
 
 public class Guard extends Human implements carryWeapons {
@@ -29,7 +31,15 @@ public class Guard extends Human implements carryWeapons {
 
     public String arrestPeople() {
         return "The " + getNationality() + " guard called " + getName() + " arrested "
-                + getArrestedPoachers() + ".";
+                + getArrestedPoachers() + " the poacher.";
+    }
+
+    public String guardIntroduction() {
+        return "Name: " + getName() + ", ID: " + getId()
+                + ", gender: " + getGender() + ", age: " + getAge() +
+                ", live rounds rifle: " + getLiveRoundsRifle() +
+                ", visited regions: " + getVisitedRegions() + ", vehicle: " + getVehicle()
+                + ", Java class: " + getClass();
     }
 
     // Vehicle
@@ -70,7 +80,19 @@ public class Guard extends Human implements carryWeapons {
             }
         }
         return String.join("", arrestedPoachers);
+    }
 
+    public String shootPoacher(String guardName, String poacherName) {
+        PoacherService poacherService = new PoacherService();
+        GuardService guardService = new GuardService();
+        Guard foundGuard = guardService.searchByName(guardName).get(0);
+        Poacher foundPoacher = poacherService.searchByName(poacherName).get(0);
+        return "In self-defense, the " + foundGuard.getNationality() + " guard "
+                + foundGuard.getName() + " shot the " + foundPoacher.getNationality() + " poacher "
+                + foundPoacher.getName() + " with a " +
+                foundGuard.getLiveRoundsRifle() + ". " + foundPoacher.getName() +
+                " was threatening with a " + foundPoacher.getLiveRoundsRifle() +
+                " and also owned " + foundPoacher.getBladedWeapon() + ".";
     }
 
     // carryWeapon interface's methods
@@ -86,7 +108,8 @@ public class Guard extends Human implements carryWeapons {
         Guard foundGuard = guardService.searchByName(guardName).get(0);
         Animal foundAnimal = animalRepository.searchByAnimalName(animalName).get(0);
         System.out.println("In self-defense, the " + foundGuard.getNationality() + " guard "
-                + foundGuard.getName() + " shot " + foundAnimal.getNickname() + ".");
+                + foundGuard.getName() + " shot " + foundAnimal.getNickname() + " with a " +
+                foundGuard.getLiveRoundsRifle() + ".");
         return null;
     }
 

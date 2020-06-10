@@ -70,6 +70,18 @@ public class AnimalRepository implements searchByAnimal {
         System.out.println("Search result by animal family : " + foundGenericAnimalFamily);
     }
 
+    public void returnSearchAnimalByName(String animalName) {
+        for (Animal animal: this.animalList) {
+            if (animal.getNickname().toLowerCase().contains(animalName)) {
+                System.out.println("Name: " + animal.getNickname() + ", ID: " + animal.getId()
+                        + ", gender: " + animal.getGender() + ", age: " + animal.getAge() +
+                         ", species: " + animal.getSpecies() +
+                        ", family: " + animal.getFamily() + ", weight in Kg: " + animal.getWeight() +
+                        ", speed: " + animal.getSpeed() + ", Java class: " + animal.getClass());
+            }
+        }
+    }
+
     @Override
     public ArrayList<Animal> searchByAnimalName(String animalName) {
         ArrayList<Animal> result = new ArrayList<>();

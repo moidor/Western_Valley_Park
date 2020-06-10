@@ -30,8 +30,18 @@ public class GuardService {
 
     public void getEveryGuard() {
         for (Guard g: this.guardRepository.getGuardsList()) {
-            System.out.println("Name : " + g.getName() + ", nationality : " + g.getNationality() +
-                    ", gender : " + g.getGender() + ", visited regions : " + g.getVisitedRegions() + ".");
+            System.out.println("Name : " + g.getName()+
+                    ", gender : " + g.getGender() + ".");
         }
+    }
+
+    public void getSearchedGuardByName(String guardName) {
+        Guard foundGuard = this.searchByName(guardName).get(0);
+        System.out.println(foundGuard.guardIntroduction());
+    }
+
+    public void guardShootingPoacher(String guardName, String poacherName) {
+        Guard guard = guardRepository.getGuardsList().get(0);
+        System.out.println(guard.shootPoacher(guardName, poacherName));
     }
 }
