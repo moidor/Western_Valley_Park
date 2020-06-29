@@ -5,6 +5,8 @@ import com.wvp.people.Guard;
 import com.wvp.people.repositories.GuardRepository;
 import com.wvp.people.services.*;
 import com.wvp.species.AnimalRepository;
+import com.wvp.streams.File_buffer;
+import com.wvp.streams.Serialization;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -158,6 +160,7 @@ public class Western_Valley_Park {
 
                 case 4:
                     System.out.println("Search a tour guide : ");
+                    tourGuideService.getEveryTourGuide();
                     Scanner scanner6 = new Scanner(System.in);
                     String search6 = scanner6.nextLine();
                     tourGuideService.tourGuideActivies(search6);
@@ -205,16 +208,28 @@ public class Western_Valley_Park {
                 case 7:
                     System.out.println("Select an option \n" +
                             "1. Quit \n" +
-                            "2. Download");
+                            "2. Download \n" +
+                            "3. Serialization");
                     response1 = input.nextInt();
                     switch (response1) {
                         case 1:
                             System.out.println("Fin du programme");
                             break;
+
+//                            Ne fonctionne pas encore
+                        case 2:
+                            File_buffer file_buffer = new File_buffer();
+                            file_buffer.fileCreation();
+                            break;
+
+                        case 3:
+                            Serialization serialization = new Serialization();
+                            serialization.SerializeObjects();
+                            break;
                     }
 
                 default:
-                    System.out.println("This is not a valid menu option ! Please select another.");
+                    //System.out.println("This is not a valid menu option ! Please select another.");
                     break;
             }
 

@@ -3,6 +3,7 @@ package com.wvp.people.services;
 import com.wvp.enums.Gender;
 import com.wvp.enums.Nationality;
 import com.wvp.enums.ParkRegions;
+import com.wvp.people.Guard;
 import com.wvp.people.TourGuide;
 import com.wvp.people.repositories.TourGuideRepository;
 
@@ -26,5 +27,12 @@ public class TourGuideService {
         System.out.println(foundTourGuide.getName() + " from " + foundTourGuide.getCountry()
                 + " makes " + foundTourGuide.getGroupOfTourists()
         + " visit " + foundTourGuide.getVisitedRegions() + ".");
+    }
+
+    public void getEveryTourGuide() {
+        for (TourGuide tourGuide: this.tourGuideRepository.getTourGuidesList()) {
+            System.out.println("Name : " + tourGuide.getName()+
+                    ", gender : " + tourGuide.getGender() + ".");
+        }
     }
 }

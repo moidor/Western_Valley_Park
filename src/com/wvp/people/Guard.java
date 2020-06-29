@@ -1,20 +1,20 @@
 package com.wvp.people;
 
-import com.wvp.exceptions.NoNameException;
 import com.wvp.interfaces.humans_interfaces.carryWeapons;
 import com.wvp.models.Animal;
 import com.wvp.models.Human;
-import com.wvp.people.repositories.GuardRepository;
-import com.wvp.people.repositories.PoacherRepository;
 import com.wvp.people.services.GuardService;
 import com.wvp.people.services.PoacherService;
 import com.wvp.species.AnimalRepository;
 
-public class Guard extends Human implements carryWeapons {
+import java.io.Serializable;
+import java.util.Arrays;
+
+public class Guard extends Human implements carryWeapons, Serializable {
     // Attributes
     private String vehicle;
     private String liveRoundsRifle;
-    private String[] arrestedPoachers;
+    private final String[] arrestedPoachers;
 
     public Guard(int id, String name, int age, String gender, String nationality, String country,
                  String[] arrestedPoachers, String vehicle, String liveRoundsRifle, String... visitedRegions) {
@@ -93,6 +93,16 @@ public class Guard extends Human implements carryWeapons {
                 foundGuard.getLiveRoundsRifle() + ". " + foundPoacher.getName() +
                 " was threatening with a " + foundPoacher.getLiveRoundsRifle() +
                 " and also owned " + foundPoacher.getBladedWeapon() + ".";
+    }
+
+    // Overriding of "toString()" method
+    @Override
+    public String toString() {
+        return "Guard - " + super.toString() +
+                " {'vehicle='" + vehicle + '\'' +
+                ", liveRoundsRifle='" + liveRoundsRifle + '\'' +
+                ", arrestedPoachers=" + Arrays.toString(arrestedPoachers) +
+                '}';
     }
 
     // carryWeapon interface's methods

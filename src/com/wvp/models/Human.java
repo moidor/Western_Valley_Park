@@ -1,6 +1,9 @@
 package com.wvp.models;
 
-public abstract class Human {
+import java.io.Serializable;
+import java.util.Arrays;
+
+public abstract class Human implements Serializable {
     // Attributes
     private int id;
     private String name;
@@ -87,5 +90,18 @@ public abstract class Human {
     // Plus tard, insérer plutôt un objet Animal à la place du String afin de rendre plus dynamique
     public String takePicture(String animalName, String visitedRegion) {
         return getName() + " took a picture of a " + animalName + " in " + visitedRegion;
+    }
+
+    // toString() overriding
+
+    @Override
+    public String toString() {
+        return  "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                ", visitedRegions=" + Arrays.toString(visitedRegions) +
+                ", nationality='" + nationality + '\'' +
+                ", country='" + country + '\'';
     }
 }
