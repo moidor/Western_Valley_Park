@@ -175,12 +175,12 @@ public class Guard extends Human implements carryWeapons, Serializable {
     }
 
     @Override
-    public boolean hasVisitedRegions() {
-        return super.hasVisitedRegions();
+    public boolean stillDidNotVisitRegion() {
+        return super.stillDidNotVisitRegion();
     }
 
     @Override
-    public String takePicture(String animalName, String visitedRegion) {
-        return super.takePicture(animalName, visitedRegion);
+    public String takePicture(String animalName, String animalFamily, String animalRegion) {
+        return super.takePicture(animalName, animalFamily, animalRegion);
     }
 }

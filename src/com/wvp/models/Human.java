@@ -65,7 +65,7 @@ public abstract class Human implements Serializable {
             return String.join(" and ", visitedRegions);
         }
         else if (visitedRegions.length > 2) {
-            String secondToLastIndex = visitedRegions[visitedRegions.length -2];
+            String secondToLastIndex = visitedRegions[visitedRegions.length - 2];
             String lastIndex = visitedRegions[visitedRegions.length - 1];
             String visitedRegionsString = String.join(", ", visitedRegions);
             /* Le prog. va supprimer l'avant-dernier et le dernier index, les virgules avant et après l'avant-dernier index,
@@ -83,13 +83,13 @@ public abstract class Human implements Serializable {
 
     // Methods
     // Aucune région encore visitée
-    public boolean hasVisitedRegions() {
+    public boolean stillDidNotVisitRegion() {
         return getVisitedRegions().length() <= 0;
     }
 
     // Plus tard, insérer plutôt un objet Animal à la place du String afin de rendre plus dynamique
-    public String takePicture(String animalName, String visitedRegion) {
-        return getName() + " took a picture of a " + animalName + " in " + visitedRegion;
+    public String takePicture(String animalName, String animalFamily, String animalRegion) {
+        return "Clic ! " + getName() + " took a picture of " + animalName + " the " + animalFamily + " in " + animalRegion + " ! ";
     }
 
     // toString() overriding

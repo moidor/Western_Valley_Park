@@ -11,8 +11,7 @@ public class Poacher extends Human implements carryWeapons {
 
     // Constructor
     public Poacher(int id, String name, int age, String gender, String nationality, String country, String liveRoundsRifle,
-                   String bladedWeapon,
-                   String... visitedRegions) {
+                   String bladedWeapon, String... visitedRegions) {
         super(id, name, age, gender, nationality, country, visitedRegions);
         this.liveRoundsRifle = liveRoundsRifle;
         this.bladedWeapon = bladedWeapon;
@@ -99,7 +98,7 @@ public class Poacher extends Human implements carryWeapons {
     }
 
     @Override
-    public boolean hasVisitedRegions() {
-        return super.hasVisitedRegions();
+    public boolean stillDidNotVisitRegion() {
+        return super.stillDidNotVisitRegion();
     }
 }

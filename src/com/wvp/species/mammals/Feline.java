@@ -5,10 +5,8 @@ import com.wvp.interfaces.animals_interfaces.carnivore;
 import com.wvp.models.Animal;
 
 public class Feline extends Animal implements carnivore, canSwim {
-    private carnivore carnivore;
-    public Feline(int id, String species, String family, String nickname, int age, int weight, int speed, String gender) {
-        super(id, species, nickname, age, weight, speed, gender, family);
-        this.carnivore = carnivore;
+    public Feline(int id, String species, String nickname, int age, double weight, int speed, String gender, String family, String regionOfOrigin) {
+        super(id, species, nickname, age, weight, speed, gender, family, regionOfOrigin);
     }
 
     @Override
@@ -62,12 +60,12 @@ public class Feline extends Animal implements carnivore, canSwim {
     }
 
     @Override
-    public int getWeight() {
+    public double getWeight() {
         return super.getWeight();
     }
 
     @Override
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         super.setWeight(weight);
     }
 
@@ -94,6 +92,16 @@ public class Feline extends Animal implements carnivore, canSwim {
     @Override
     public void isImmobile() {
         super.isImmobile();
+    }
+
+    @Override
+    public String getRegionOfOrigin() {
+        return super.getRegionOfOrigin();
+    }
+
+    @Override
+    public void setRegionOfOrigin(String regionOfOrigin) {
+        super.setRegionOfOrigin(regionOfOrigin);
     }
 
     // Implemented methods

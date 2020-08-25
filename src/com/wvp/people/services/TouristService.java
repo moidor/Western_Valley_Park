@@ -1,13 +1,15 @@
 package com.wvp.people.services;
 
-import com.wvp.enums.ParkRegions;
+import com.wvp.models.Animal;
 import com.wvp.people.Tourist;
 import com.wvp.people.repositories.TouristRepository;
+import com.wvp.species.AnimalRepository;
 
 import java.util.ArrayList;
 
 public class TouristService {
     TouristRepository touristRepository = new TouristRepository();
+    AnimalRepository animalRepository = new AnimalRepository();
 
     public String getTouristInstance(String name) {
         this.touristRepository.getTouristsList().get(0).getName();
@@ -28,11 +30,11 @@ public class TouristService {
     public void getEveryTourist() {
         for (Tourist tourist: this.touristRepository.getTouristsList()) {
             System.out.println(tourist.getName() +
-                    ", gender : " + tourist.getGender() + ", from " + tourist.getCountry() + ".");
+                    ", gender: " + tourist.getGender() + ", from " + tourist.getCountry() + ".");
         }
     }
 
-    // ON CHERCHE UNIQUEMENT UN NOM
+    // Recherche par nom en fonction d'un type générique
     public ArrayList<Tourist> searchByName(String name) {
         ArrayList<Tourist> result = new ArrayList<>();
         for (Tourist t: this.touristRepository.getTouristsList()) {
@@ -45,14 +47,25 @@ public class TouristService {
 
     public void touristActivities(String touristName) {
         Tourist foundTourist = this.searchByName(touristName).get(0);
-        if (foundTourist.hasVisitedRegions()) {
+        if (foundTourist.stillDidNotVisitRegion()) {
             System.out.println(foundTourist.getName() + " still did not visit any region.");
         } else {
-            System.out.println(foundTourist.getName() + " (Customer n° : " + foundTourist.getId()
-                    + ")" + " visited " +
-                    foundTourist.getVisitedRegions() + ". "
-                    + foundTourist.takePicture("cheetah",
-                    ParkRegions.ANTELOPESVALLEY.getRegionName() + "."));
+            System.out.println("The " + foundTourist.getNationality() +
+                    foundTourist.getName() + " (Customer n°" + foundTourist.getId()
+                    + ")" + " visited " + foundTourist.getVisitedRegions() + ". ");
+        }
+    }
+
+    public void touristTakingPicture(String touristName, String animalName) {
+        Tourist foundTourist = this.searchByName(touristName).get(0);
+        Animal foundAnimal = this.animalRepository.searchByAnimalName(animalName).get(0);
+        if (foundTourist.stillDidNotVisitRegion())
+            System.out.println(foundTourist.getName() + " still did not visit any region.");
+        if (foundTourist.getVisitedRegions().contains(foundAnimal.getRegionOfOrigin())) {
+            System.out.println(foundTourist.takePicture(foundAnimal.getNickname(), foundAnimal.getFamily(), foundAnimal.getRegionOfOrigin()));
+        } else {
+            System.out.println("Hum, it seems that " + foundTourist.getName() + " never visited " + foundAnimal.getRegionOfOrigin()
+                    + " and can't snap " + foundAnimal.getNickname() + " as a result...");
         }
     }
 

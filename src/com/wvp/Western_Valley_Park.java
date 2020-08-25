@@ -36,7 +36,7 @@ public class Western_Valley_Park {
 
             userChoice = input.nextInt();
 
-            // Importation des services et repositories
+            // Initialisation des services et des repositories
                 AnimalRepository animalRepository = new AnimalRepository();
                 GuardService guardService = new GuardService();
                 ScientistService scientistService = new ScientistService();
@@ -55,15 +55,15 @@ public class Western_Valley_Park {
                     switch (response1) {
                         case 1:
                             Scanner scannerAnimalName = new Scanner(System.in);
-                            System.out.println("Search by animal name : ");
+                            System.out.println("Search by animal name: ");
                             String researchAnimalName = scannerAnimalName.nextLine();
                             animalRepository.returnSearchAnimalByName(researchAnimalName);
                             break;
 
                         case 2:
-                            // Afficher toutes les espèces animales disponibles avant
+                            // Afficher toutes les espèces animales disponibles
                             Scanner scannerAnimalName1 = new Scanner(System.in);
-                            System.out.println("Search by animal species : ");
+                            System.out.println("Search by animal species: ");
                             String animalNameResearch1 = scannerAnimalName1.nextLine();
                             animalRepository.getAnimalsBySpecies(animalNameResearch1);
                             break;
@@ -83,7 +83,7 @@ public class Western_Valley_Park {
                     response1 = input.nextInt();
                     switch (response1) {
                         case 1:
-                            System.out.println("Search a guard : ");
+                            System.out.println("Search a guard: ");
                             guardService.getEveryGuard();
                             Scanner scannerGuard = new Scanner(System.in);
                             String searchGuard = scannerGuard.nextLine();
@@ -95,7 +95,7 @@ public class Western_Valley_Park {
                             break;
 
                         case 2:
-                            System.out.println("Search a guard who shot an animal in self-defense : ");
+                            System.out.println("Search a guard who shot an animal in self-defense: ");
                             guardService.getEveryGuard();
                             Scanner scanner2 = new Scanner(System.in);
                             String search2 = scanner2.nextLine();
@@ -113,7 +113,7 @@ public class Western_Valley_Park {
                             break;
 
                         case 3:
-                            System.out.println("Search a guard who shot a poacher in self-defense : ");
+                            System.out.println("Search a guard who shot a poacher in self-defense: ");
                             guardService.getEveryGuard();
                             Scanner scanner5 = new Scanner(System.in);
                             String search5 = scanner5.nextLine();
@@ -129,7 +129,7 @@ public class Western_Valley_Park {
                             break;
 
                         case 4:
-                            System.out.println("Search a guard to know which poacher he has arrested : ");
+                            System.out.println("Search a guard to know which poacher he has arrested: ");
                             guardService.getEveryGuard();
                             Scanner scanner1 = new Scanner(System.in);
                             String search1 = scanner1.nextLine();
@@ -143,7 +143,7 @@ public class Western_Valley_Park {
                     break;
 
                 case 3:
-                    System.out.println("Search a scientist : ");
+                    System.out.println("Search a scientist: ");
                     scientistService.getEveryScientist();
                     Scanner scanner4 = new Scanner(System.in);
                     Scanner scanner5 = new Scanner(System.in);
@@ -152,14 +152,14 @@ public class Western_Valley_Park {
                         System.out.println("Program stopped");
                         break;
                     }
-                    System.out.println("Search an animal name : ");
+                    System.out.println("Search an animal name: ");
                     animalRepository.getEveryAnimal();
                     String search5 = scanner5.nextLine();
                     scientistService.scientistActivities(search4, search5);
                     break;
 
                 case 4:
-                    System.out.println("Search a tour guide : ");
+                    System.out.println("Search a tour guide: ");
                     tourGuideService.getEveryTourGuide();
                     Scanner scanner6 = new Scanner(System.in);
                     String search6 = scanner6.nextLine();
@@ -169,11 +169,12 @@ public class Western_Valley_Park {
                 case 5:
                     System.out.println("Search a tourist by \n" +
                             "1. Name \n" +
-                            "2. Nationality");
+                            "2. Nationality \n" +
+                            "3. Take a picture");
                     response1 = input.nextInt();
                     switch (response1) {
                         case 1:
-                            System.out.println("List of tourists : ");
+                            System.out.println("List of tourists: ");
                             touristService.getEveryTourist();
                             Scanner scanner7 = new Scanner(System.in);
                             String search7 = scanner7.nextLine();
@@ -181,11 +182,19 @@ public class Western_Valley_Park {
                             break;
 
                         case 2:
-                            System.out.println("Search tourists by nationality : ");
+                            System.out.println("Search tourists by nationality: ");
                             Scanner scanner8 = new Scanner(System.in);
                             String search8 = scanner8.nextLine();
                             touristService.searchByNationality(search8);
                             break;
+
+                        case 3:
+                            System.out.println("Enter a tourist and an animal name to photograph an animal !");
+                            Scanner scanner8Bis = new Scanner(System.in);
+                            String search8Bis = scanner8Bis.nextLine();
+                            Scanner scanner8Bis1 = new Scanner(System.in);
+                            String search8Bis1 = scanner8Bis1.nextLine();
+                            touristService.touristTakingPicture(search8Bis, search8Bis1);
                     }
                     break;
 
@@ -216,7 +225,7 @@ public class Western_Valley_Park {
                             System.out.println("Fin du programme");
                             break;
 
-//                            Ne fonctionne pas encore
+                //  Ne fonctionne pas encore
                         case 2:
                             File_buffer file_buffer = new File_buffer();
                             file_buffer.fileCreation();

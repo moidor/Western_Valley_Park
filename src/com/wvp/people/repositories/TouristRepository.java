@@ -23,7 +23,7 @@ public class TouristRepository {
                 ParkRegions.KUDUSCAMP.getRegionName(),
                 ParkRegions.ANTELOPESVALLEY.getRegionName(), ParkRegions.ROOIBOSBERG.getRegionName(),
                 ParkRegions.BUCHULAND.getRegionName());
-        Tourist ziad = new Tourist(2, "Ziad", 1, Gender.MALE.getGender(),
+        Tourist ziad = new Tourist(2, "Ziad", 2, Gender.MALE.getGender(),
                 Nationality.FRENCH.getNationality(), Nationality.FRENCH.getCountry(),
                 ParkRegions.MUIZENBERG.getRegionName(),
                 ParkRegions.CAPESUGARBIRDPROTEA.getRegionName(), ParkRegions.GANSBAII.getRegionName());
@@ -36,6 +36,11 @@ public class TouristRepository {
         Tourist mariette = new Tourist(5, "Mariette", 75, Gender.FEMALE.getGender(),
                 Nationality.CANADIAN.getNationality(), Nationality.CANADIAN.getCountry(),
                 ParkRegions.TABLEMOUNTAIN.getRegionName(), ParkRegions.NAMIBIANREDDESERT.getRegionName());
+        // Japanese tourists
+        Tourist nozomi = new Tourist(6, "Nozomi", 25, Gender.FEMALE.getGender(), Nationality.JAPANESE.getNationality(),
+                Nationality.JAPANESE.getCountry(), ParkRegions.FYNBOSLAND.getRegionName(), ParkRegions.SPRINGBOKSTRIDE.getRegionName());
+        Tourist miyamoto = new Tourist(7, "Miyamoto", 24, Gender.MALE.getGender(), Nationality.JAPANESE.getNationality(),
+                Nationality.JAPANESE.getCountry());
 
 
         this.touristsList.add(brigitte);
@@ -43,6 +48,8 @@ public class TouristRepository {
         this.touristsList.add(dina);
         this.touristsList.add(jacques);
         this.touristsList.add(mariette);
+        this.touristsList.add(nozomi);
+        this.touristsList.add(miyamoto);
     }
 
     public String getTouristInstance(String name) {

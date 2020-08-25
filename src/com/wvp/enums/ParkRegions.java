@@ -11,6 +11,10 @@ public enum ParkRegions {
     KIRSTENBOSCH("Kirstenbosch"),
     GANSBAII("Gansbaii"),
     NAMIBIANREDDESERT("Namibian Red Desert"),
+    VANDYKSBAY("Van Dyks Bay"),
+    CEDARBERG("Cedarberg"),
+    SPRINGBOKSTRIDE("Springbok Stride"),
+    FYNBOSLAND("Fynbos Land"),
     TABLEMOUNTAIN("Table Mountain");
 
     private final String regionName;

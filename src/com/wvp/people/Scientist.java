@@ -1,7 +1,6 @@
 package com.wvp.people;
 
 import com.wvp.interfaces.humans_interfaces.carryWeapons;
-import com.wvp.models.Animal;
 import com.wvp.models.Human;
 //GENERICITE AVEC LES ANIMAUX POUR LES SCIENTIFIQUES
 
@@ -94,12 +93,12 @@ public class Scientist extends Human implements carryWeapons {
     }
 
     @Override
-    public boolean hasVisitedRegions() {
-        return super.hasVisitedRegions();
+    public boolean stillDidNotVisitRegion() {
+        return super.stillDidNotVisitRegion();
     }
 
     @Override
-    public String takePicture(String animalName, String visitedRegion) {
-        return super.takePicture(animalName, visitedRegion);
+    public String takePicture(String animalName, String animalFamily, String animalRegion) {
+        return super.takePicture(animalName, animalFamily, animalRegion);
     }
 }

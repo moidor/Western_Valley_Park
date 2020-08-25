@@ -1,7 +1,5 @@
 package com.wvp.models;
 
-import java.io.Serializable;
-
 public abstract class Animal {
     // Attributes
     private int id;
@@ -9,12 +7,13 @@ public abstract class Animal {
     private String family;
     private String nickname;
     private int age;
-    private int weight;
+    private double weight;
     private int speed;
     private String gender;
+    private String regionOfOrigin;
 
     // Constructor
-    public Animal(int id, String species, String nickname, int age, int weight, int speed, String gender, String family) {
+    public Animal(int id, String species, String nickname, int age, double weight, int speed, String gender, String family, String regionOfOrigin) {
         this.id = id;
         this.species = species;
         this.nickname = nickname;
@@ -23,6 +22,7 @@ public abstract class Animal {
         this.speed = speed;
         this.gender = gender;
         this.family = family;
+        this.regionOfOrigin = regionOfOrigin;
     }
 
     // Methods
@@ -66,11 +66,11 @@ public abstract class Animal {
         this.age = age;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
@@ -90,8 +90,16 @@ public abstract class Animal {
         this.gender = gender;
     }
 
+    public String getRegionOfOrigin() {
+        return regionOfOrigin;
+    }
+
+    public void setRegionOfOrigin(String regionOfOrigin) {
+        this.regionOfOrigin = regionOfOrigin;
+    }
+
     public void isImmobile() {
         System.out.println(getNickname() + ", the " + getSpecies()
-                + ", " + getAge() + " years old, " + " is immobile");
+                + ", " + getAge() + " years old, " + " is sit down");
     }
 }

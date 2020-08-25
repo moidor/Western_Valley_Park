@@ -3,8 +3,8 @@ package com.wvp.species.mammals;
 import com.wvp.models.Animal;
 
 public class Pachyderm extends Animal {
-    public Pachyderm(int id, String species, String family, String nickname, int age, int weight, int speed, String gender) {
-        super(id, species, nickname, age, weight, speed, gender, family);
+    public Pachyderm(int id, String species, String nickname, int age, double weight, int speed, String gender, String family, String regionOfOrigin) {
+        super(id, species, nickname, age, weight, speed, gender, family, regionOfOrigin);
     }
 
     @Override
@@ -58,12 +58,12 @@ public class Pachyderm extends Animal {
     }
 
     @Override
-    public int getWeight() {
+    public double getWeight() {
         return super.getWeight();
     }
 
     @Override
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         super.setWeight(weight);
     }
 
@@ -85,6 +85,16 @@ public class Pachyderm extends Animal {
     @Override
     public void setGender(String gender) {
         super.setGender(gender);
+    }
+
+    @Override
+    public String getRegionOfOrigin() {
+        return super.getRegionOfOrigin();
+    }
+
+    @Override
+    public void setRegionOfOrigin(String regionOfOrigin) {
+        super.setRegionOfOrigin(regionOfOrigin);
     }
 
     @Override

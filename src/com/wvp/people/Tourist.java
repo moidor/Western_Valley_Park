@@ -10,17 +10,17 @@ public class Tourist extends Human implements carryWeapons {
     }
 
     @Override
-    public String takePicture(String animalName, String visitedRegion) {
-        return super.takePicture(animalName, visitedRegion);
+    public String takePicture(String animalName, String animalFamily, String animalRegion) {
+        return super.takePicture(animalName, animalFamily, animalRegion);
     }
 
     @Override
-    public boolean hasVisitedRegions() {
-        return super.hasVisitedRegions();
+    public boolean stillDidNotVisitRegion() {
+        return super.stillDidNotVisitRegion();
     }
 
-    // Surcharge
-    public String canCarryWeapon(String message) {
+    // Surcharge rajouter override ainsi que dans les autres classes l'implémentant
+    public String canCarryWeapons(String message) {
         return message;
     }
 
@@ -79,4 +79,8 @@ public class Tourist extends Human implements carryWeapons {
         return super.getCountry();
     }
 
+    @Override
+    public String getVisitedRegions() {
+        return super.getVisitedRegions();
+    }
 }

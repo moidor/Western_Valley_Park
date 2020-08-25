@@ -26,7 +26,7 @@ public class GuardRepository {
                 Nationality.SOUTH_AFRICAN.getCountry(),
                 new String[]{poacherService.getPoacherInstance("Mark")},"Savannah Jeep", "hunting rifle",
                 ParkRegions.KUDUSCAMP.getRegionName(), ParkRegions.CAPESUGARBIRDPROTEA.getRegionName(),
-                ParkRegions.ANTELOPESVALLEY.getRegionName());
+                ParkRegions.ANTELOPESVALLEY.getRegionName(), ParkRegions.CEDARBERG.getRegionName());
         Guard noah = new Guard(2, "Noah", 34, Gender.MALE.getGender(), Nationality.SOUTH_AFRICAN.getNationality(),
                 Nationality.SOUTH_AFRICAN.getCountry(),
                 new String[]{poacherService.getPoacherInstance("John")},"Savannah Jeep", "hunting rifle",
