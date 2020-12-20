@@ -16,6 +16,7 @@ public enum Animals {
     // Pachyderms
     RHINOCEROS("rhino", "rhinos"),
     ELEPHANT("elephant", "elephants"),
+    HIPPOPOTAMUS("hippopotamus", "hippopotamus"),
     // Other mammals
     GIRAFFE("giraffe", "giraffes"),
     // Birds

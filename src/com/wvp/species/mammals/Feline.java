@@ -95,6 +95,11 @@ public class Feline extends Animal implements carnivore, canSwim {
     }
 
     @Override
+    public void animalSound() {
+        System.out.println("Wooow ! " + getNickname() + " roars very strong ! ROAAAR !");
+    }
+
+    @Override
     public String getRegionOfOrigin() {
         return super.getRegionOfOrigin();
     }

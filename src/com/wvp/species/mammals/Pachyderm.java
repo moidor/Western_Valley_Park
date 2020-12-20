@@ -1,6 +1,7 @@
 package com.wvp.species.mammals;
 
 import com.wvp.models.Animal;
+import com.wvp.species.enums.Animals;
 
 public class Pachyderm extends Animal {
     public Pachyderm(int id, String species, String nickname, int age, double weight, int speed, String gender, String family, String regionOfOrigin) {
@@ -100,5 +101,21 @@ public class Pachyderm extends Animal {
     @Override
     public void isImmobile() {
         super.isImmobile();
+    }
+
+    @Override
+    public void animalSound() {
+        if (getSpecies().equals(Animals.ELEPHANT.getSpecies()) || getSpecies().equals(Animals.RHINOCEROS.getSpecies())) {
+            System.out.println("Woooow ! " + getNickname() + " the " + getSpecies() + " trumpets !");
+        } else if (getSpecies().equals(Animals.HIPPOPOTAMUS.getSpecies())) {
+            System.out.println("Woooow ! " + getNickname() + " the " + getSpecies() + " grunts !");
+        } else {
+            System.out.println("Woooow ! " + getNickname() + " the " + getSpecies() + " expresses itself with voice !");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }

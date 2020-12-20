@@ -9,6 +9,7 @@ import com.wvp.streams.File_buffer;
 import com.wvp.streams.Serialization;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Western_Valley_Park {
@@ -52,25 +53,23 @@ public class Western_Valley_Park {
                             "2. Species \n" +
                             "3. See every animal \n");
                     response1 = input.nextInt();
+                    // Afficher toutes les espèces animales disponibles
                     switch (response1) {
-                        case 1:
+                        case 1 -> {
                             Scanner scannerAnimalName = new Scanner(System.in);
                             System.out.println("Search by animal name: ");
-                            String researchAnimalName = scannerAnimalName.nextLine();
-                            animalRepository.returnSearchAnimalByName(researchAnimalName);
-                            break;
-
-                        case 2:
-                            // Afficher toutes les espèces animales disponibles
+                            String searchedAnimalName = scannerAnimalName.nextLine();
+                            //animalRepository.returnSearchedAnimalByName(researchAnimalName);
+                            // Programmation fonctionnelle
+                            animalRepository.returnSearchedAnimalByName2.accept(searchedAnimalName);
+                        }
+                        case 2 -> {
                             Scanner scannerAnimalName1 = new Scanner(System.in);
                             System.out.println("Search by animal species: ");
                             String animalNameResearch1 = scannerAnimalName1.nextLine();
                             animalRepository.getAnimalsBySpecies(animalNameResearch1);
-                            break;
-
-                        case 3:
-                            animalRepository.getEveryAnimal();
-                            break;
+                        }
+                        case 3 -> animalRepository.getEveryAnimal();
                     }
                     break;
 
@@ -82,7 +81,7 @@ public class Western_Valley_Park {
                             "4. Arresting a poacher");
                     response1 = input.nextInt();
                     switch (response1) {
-                        case 1:
+                        case 1 -> {
                             System.out.println("Search a guard: ");
                             guardService.getEveryGuard();
                             Scanner scannerGuard = new Scanner(System.in);
@@ -92,9 +91,8 @@ public class Western_Valley_Park {
                                 break;
                             }
                             guardService.getSearchedGuardByName(searchGuard);
-                            break;
-
-                        case 2:
+                        }
+                        case 2 -> {
                             System.out.println("Search a guard who shot an animal in self-defense: ");
                             guardService.getEveryGuard();
                             Scanner scanner2 = new Scanner(System.in);
@@ -110,9 +108,8 @@ public class Western_Valley_Park {
                             GuardRepository guardRepository = new GuardRepository();
                             Guard guard = guardRepository.getGuardsList().get(0);
                             guard.shootAnimal(search2, search3);
-                            break;
-
-                        case 3:
+                        }
+                        case 3 -> {
                             System.out.println("Search a guard who shot a poacher in self-defense: ");
                             guardService.getEveryGuard();
                             Scanner scanner5 = new Scanner(System.in);
@@ -126,9 +123,8 @@ public class Western_Valley_Park {
                             Scanner scanner6 = new Scanner(System.in);
                             String search6 = scanner6.nextLine();
                             guardService.guardShootingPoacher(search5, search6);
-                            break;
-
-                        case 4:
+                        }
+                        case 4 -> {
                             System.out.println("Search a guard to know which poacher he has arrested: ");
                             guardService.getEveryGuard();
                             Scanner scanner1 = new Scanner(System.in);
@@ -138,7 +134,7 @@ public class Western_Valley_Park {
                                 break;
                             }
                             guardService.guardActivities(search1);
-                            break;
+                        }
                     }
                     break;
 

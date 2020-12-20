@@ -2,7 +2,8 @@ package com.wvp.enums;
 
 public enum RangeOfExpertise {
     FELINE("feline", "felines"),
-    PACHYDERM("pachyderm", "pachyderms");
+    PACHYDERM("pachyderm", "pachyderms"),
+    BIRD("bird", "birds");
 
     private final String rangeOfExpertise;
     private final String rangeOfExpertisePlural;

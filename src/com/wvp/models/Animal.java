@@ -102,4 +102,22 @@ public abstract class Animal {
         System.out.println(getNickname() + ", the " + getSpecies()
                 + ", " + getAge() + " years old, " + " is sit down");
     }
+
+    public void animalSound() {
+    }
+
+    @Override
+    public String toString() {
+        return family.toUpperCase() + " {" +
+                "id=" + id +
+                ", species='" + species + '\'' +
+                ", family='" + family + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", age=" + age +
+                ", weight=" + weight +
+                ", speed=" + speed +
+                ", gender='" + gender + '\'' +
+                ", regionOfOrigin='" + regionOfOrigin + '\'' +
+                '}';
+    }
 }

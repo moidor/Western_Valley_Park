@@ -14,10 +14,11 @@ import com.wvp.species.mammals.OtherMammal;
 import com.wvp.species.mammals.Pachyderm;
 
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 public class AnimalRepository implements searchByAnimal {
     // Déclaration d'une variable VIDE dans la mémoire du PC afin de la remplir après
-    private final ArrayList<Animal> animalList;
+    private ArrayList<Animal> animalList;
 
     public AnimalRepository() {
         // Instanciation de la liste et son remplissage après avec la méthode "animalInit()"
@@ -29,8 +30,6 @@ public class AnimalRepository implements searchByAnimal {
     public ArrayList<Animal> getAnimalList() {
         return animalList;
     }
-
-
 
     public ArrayList<Feline> getFelineList() {
         ArrayList<Feline> result = new ArrayList<>();
@@ -74,7 +73,8 @@ public class AnimalRepository implements searchByAnimal {
         System.out.println("Search result by animal family : " + foundGenericAnimalFamily);
     }
 
-    public void returnSearchAnimalByName(String animalName) {
+    // Imperative
+    public void returnSearchedAnimalByName(String animalName) {
         for (Animal animal: this.animalList) {
             if (animal.getNickname().toLowerCase().contains(animalName)) {
                 System.out.println("Name: " + animal.getNickname() + ", ID: " + animal.getId()
@@ -85,6 +85,19 @@ public class AnimalRepository implements searchByAnimal {
             }
         }
     }
+
+    // Declarative
+    public Consumer<String> returnSearchedAnimalByName2 = animalName -> {
+        for (Animal animal: this.animalList) {
+            if (animal.getNickname().toLowerCase().contains(animalName)) {
+                System.out.println("Name: " + animal.getNickname() + ", ID: " + animal.getId()
+                        + ", gender: " + animal.getGender() + ", age: " + animal.getAge() +
+                        ", species: " + animal.getSpecies() +
+                        ", family: " + animal.getFamily() + ", weight in Kg: " + animal.getWeight() +
+                        ", speed in km/h: " + animal.getSpeed() + ", Java class: " + animal.getClass());
+            }
+        }
+    };
 
     @Override
     public ArrayList<Animal> searchByAnimalName(String animalName) {
@@ -106,10 +119,12 @@ public class AnimalRepository implements searchByAnimal {
     private void animalInit() {
         // Feline instances
         Feline speedy = new Feline(1, Animals.CHEETAH.getSpecies(), "Speedy", 14,68, 93, Gender.FEMALE.getAnimalGender(), AnimalFamilies.FELINE.getFamily(), ParkRegions.SPRINGBOKSTRIDE.getRegionName());
+        Feline mane = new Feline(2, Animals.LION.getSpecies(), "Royal Mane", 10, 90, 60, Gender.MALE.getAnimalGender(), AnimalFamilies.FELINE.getFamily(), ParkRegions.SPRINGBOKSTRIDE.getRegionName());
 
         // Pachyderm instances
-        Pachyderm rhino = new Pachyderm(1, Animals.RHINOCEROS.getSpecies(), "Super Rhino", 20, 500, 60, AnimalFamilies.PACHYDERM.getFamily(), Gender.FEMALE.getAnimalGender(), ParkRegions.CEDARBERG.getRegionName());
-        Pachyderm dumbo = new Pachyderm(2, Animals.ELEPHANT.getSpecies(), "Dumbo", 27, 1000, 23, AnimalFamilies.PACHYDERM.getFamily(), Gender.FEMALE.getAnimalGender(), ParkRegions.SPRINGBOKSTRIDE.getRegionName());
+        Pachyderm rhino = new Pachyderm(1, Animals.RHINOCEROS.getSpecies(), "Super Rhino", 20, 500, 60, Gender.MALE.getAnimalGender(), AnimalFamilies.PACHYDERM.getFamily(), ParkRegions.CEDARBERG.getRegionName());
+        Pachyderm dumbo = new Pachyderm(2, Animals.ELEPHANT.getSpecies(), "Dumbo", 27, 1000, 23, Gender.MALE.getAnimalGender(), AnimalFamilies.PACHYDERM.getFamily(), ParkRegions.SPRINGBOKSTRIDE.getRegionName());
+        Pachyderm hippo = new Pachyderm(3, Animals.HIPPOPOTAMUS.getSpecies(), "Hippo", 15, 573, 30, Gender.FEMALE.getAnimalGender(), AnimalFamilies.PACHYDERM.getFamily(), ParkRegions.SPRINGBOKSTRIDE.getRegionName());
 
         // Other mammal instances
         OtherMammal giraffe = new OtherMammal(1, Animals.GIRAFFE.getSpecies(), "Gigi", 12, 700, 60, AnimalFamilies.OTHERMAMMAL.getFamily(), Gender.FEMALE.getAnimalGender(), ParkRegions.FYNBOSLAND.getRegionName(), 2);
@@ -140,6 +155,8 @@ public class AnimalRepository implements searchByAnimal {
         this.animalList.add(suga);
         this.animalList.add(dundee);
         this.animalList.add(snaky);
+        this.animalList.add(mane);
+        this.animalList.add(hippo);
     }
 
 }
